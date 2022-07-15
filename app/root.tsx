@@ -1,4 +1,4 @@
-import type {LinksFunction, MetaFunction} from "@remix-run/node";
+import type {ErrorBoundaryComponent, LinksFunction, MetaFunction} from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -8,8 +8,9 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-import styles from "~/styles/app.css"
+import React from "react";
 
+import styles from "~/styles/app.css"
 
 export const links: LinksFunction = () => ([
   { rel: "stylesheet", href: styles },
@@ -30,11 +31,39 @@ export const links: LinksFunction = () => ([
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "New Remix App",
+  title: "Unison Floorplans",
   viewport: "width=device-width,initial-scale=1",
 });
 
-export default function App() {
+
+const App: React.FC = () => {
+  return (
+    <html>
+      <head>
+        <Links />
+        <Meta />
+      </head>
+
+      <body>
+        <Outlet />
+        <ScrollRestoration />
+        <Scripts />
+        <LiveReload />
+      </body>
+    </html>
+  )
+}
+export default App;
+
+export const CatchBoundary: React.FC = () => {
+  return (<></>)
+}
+
+export const ErrorBoundary: ErrorBoundaryComponent = ({error}) => {
+  return (<></>)
+}
+
+/*export default function App() {
   return (
     <html lang="en">
       <head>
@@ -49,4 +78,4 @@ export default function App() {
       </body>
     </html>
   );
-}
+}*/
