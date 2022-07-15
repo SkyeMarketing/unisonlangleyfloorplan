@@ -15,7 +15,7 @@ import C2 from "~/data/plans/C2.server";
 import C3 from "~/data/plans/C3.server";
 import S1 from "~/data/plans/S1.server";
 
-const Plans: PlanData[] = [
+const PlansServer: PlanData[] = [
   A1,
   A2,
   A2a,
@@ -33,4 +33,4 @@ const Plans: PlanData[] = [
   S1,
 ]
 
-export default Plans
+export default PlansServer
