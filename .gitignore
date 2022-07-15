@@ -1,0 +1,13 @@
+# Env
+.env
+
+# Node
+node_modules
+
+# Remix
+/.cache
+/public/build
+/.netlify
+
+# TailwindCSS
+app/styles/app.css
