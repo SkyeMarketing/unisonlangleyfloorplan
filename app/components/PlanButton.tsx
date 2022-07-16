@@ -51,7 +51,9 @@ const PlanButton: React.FC<PlanButtonProps> = ({plan}) => {
                     font-bold
                     font-serifCaps
                     text-black
-                    underline decoration-white decoration-4
+                    group-hover:underline 
+                    group-hover:decoration-white 
+                    group-hover:decoration-4
                     group-hover:text-white
                 `}
         >
