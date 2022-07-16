@@ -1,9 +1,22 @@
-import type {LoaderFunction} from "@remix-run/node";
+import type {ActionFunction, LoaderFunction} from "@remix-run/node";
 import Plans from "~/data/plans/Plans.server";
 import {Form, useLoaderData} from "@remix-run/react";
 import type PlanData$Client from "~/types/PlanData$Client";
 import type PlanData from "~/types/PlanData";
 import PlanButton from "~/components/PlanButton";
+import {redirect} from "@remix-run/node";
+
+export const action: ActionFunction = async ({request}): Promise<Response> => {
+  const formData = await request.formData()
+
+  const plan = formData.get("plan")
+
+  if (Plans.find(p => p.name === plan) === undefined) {
+    return redirect(`/`)
+  } else {
+    return redirect(`${plan}`)
+  }
+}
 
 export const loader: LoaderFunction = (): PlanData$Client => {
   const data: PlanData$Client = {}

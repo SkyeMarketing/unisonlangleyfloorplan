@@ -5,7 +5,7 @@ import {
   Meta,
   Outlet,
   Scripts,
-  ScrollRestoration,
+  ScrollRestoration, useCatch,
 } from "@remix-run/react";
 
 import React from "react";
@@ -62,20 +62,3 @@ export const CatchBoundary: React.FC = () => {
 export const ErrorBoundary: ErrorBoundaryComponent = ({error}) => {
   return (<></>)
 }
-
-/*export default function App() {
-  return (
-    <html lang="en">
-      <head>
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
-      </body>
-    </html>
-  );
-}*/
