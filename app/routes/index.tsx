@@ -50,9 +50,10 @@ export default function Index() {
                   <legend
                     className={`
                       font-serif
-                      border-t-2
-                      border-aqua
-                      text-xl
+                      underline
+                      decoration-4
+                      decoration-aqua
+                      text-2xl
                     `}
                   >
                     {key}

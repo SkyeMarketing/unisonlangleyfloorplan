@@ -12,9 +12,11 @@ const PlanButton: React.FC<PlanButtonProps> = ({plan}) => {
         group
         block
         border-2
+        hover:border-[4px]
         border-black
         hover:border-aqua
         rounded-lg
+        hover:rounded-md
         w-80
         overflow-hidden
       `}
@@ -37,7 +39,10 @@ const PlanButton: React.FC<PlanButtonProps> = ({plan}) => {
                 border-t
                 border-aqua
                 bg-grey/10
-                hover:bg-aqua
+                group-hover:bg-aqua
+                transition-all
+                ease-in-out
+                duration-300
               `}
       >
         <h2
@@ -58,7 +63,6 @@ const PlanButton: React.FC<PlanButtonProps> = ({plan}) => {
                     font-bold
                     font-serif
                     uppercase
-                    group-hover:text-grey
                   `}
         >
           <li>
