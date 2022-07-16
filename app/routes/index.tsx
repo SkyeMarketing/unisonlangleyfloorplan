@@ -11,11 +11,11 @@ export const action: ActionFunction = async ({request}): Promise<Response> => {
 
   const plan = formData.get("plan")
 
-  if (Plans.find(p => p.name === plan) === undefined) {
-    return redirect(`/`)
-  } else {
-    return redirect(`${plan}`)
+  if (Plans.find(p => p.name === plan) !== undefined) {
+    return redirect(`/${plan}`)
   }
+
+  return redirect("/")
 }
 
 export const loader: LoaderFunction = (): PlanData$Client => {

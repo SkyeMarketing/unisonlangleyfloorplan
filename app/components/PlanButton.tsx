@@ -68,7 +68,7 @@ const PlanButton: React.FC<PlanButtonProps> = ({plan}) => {
                   `}
         >
           <li>
-            {plan.beds} Beds
+            {`${plan.beds} Bedroom${plan.beds > 1 ? 's' : ''}`}
           </li>
           <li>
             {`${plan.sqFt} Sq.Ft.`}
