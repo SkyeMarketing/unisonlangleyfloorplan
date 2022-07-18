@@ -38,7 +38,7 @@ export const loader: LoaderFunction = (): PlanData$Client => {
   return data
 }
 
-export default function Index() {
+const Index: React.FC = (): JSX.Element => {
   const data: PlanData$Client = useLoaderData()
 
   return (
@@ -93,3 +93,4 @@ export default function Index() {
     </Form>
   );
 }
+export default Index
