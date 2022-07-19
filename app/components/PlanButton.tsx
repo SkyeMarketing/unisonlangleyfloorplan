@@ -22,6 +22,7 @@ const PlanButton: React.FC<PlanButtonProps> = ({plan}) => {
       `}
       name={`plan`}
       value={plan.name}
+      type={"submit"}
     >
       <img
         className={`
