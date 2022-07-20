@@ -1,11 +1,44 @@
 import React from "react";
-import type {LoaderFunction} from "@remix-run/node";
+import type {ActionFunction, LoaderFunction} from "@remix-run/node";
 import {Form, Link, useLoaderData} from "@remix-run/react";
 import type UnitData$Client from "~/types/UnitData$Client";
 import {redirect} from "@remix-run/node";
 import Plans from "~/data/plans/Plans.server";
 import type PlanData from "~/types/PlanData";
 import UnitButton from "~/components/UnitButton";
+
+export const action: ActionFunction = async ({request}): Promise<Response> => {
+  const formData = await request.formData()
+
+  const plan = formData.get("plan")
+  const unit = formData.get("unit")
+
+  if(plan === null) {
+    return redirect(`/`)
+  }
+
+  const maybePlan = Plans.find(p => p.name === plan)
+
+  if(maybePlan === undefined) {
+    return redirect(`/`)
+  }
+
+  if(unit === null) {
+    return redirect(`/${plan}`)
+  }
+
+  if (typeof unit !== "string") {
+    return redirect(`${plan}`)
+  }
+
+  const unitNum = parseInt(unit)
+
+  if (!maybePlan.units.includes(unitNum)) {
+    return redirect("/")
+  }
+
+  return redirect(`/${plan}/${unit}`)
+}
 
 export const loader: LoaderFunction = ({params}): UnitData$Client | Response => {
   const plan: string | undefined = params["plan"]
@@ -30,37 +63,39 @@ const $Plan: React.FC = (): JSX.Element => {
 
   return (
     <div className="flex flex-row">
-      <div className="flex-grow">
+      <div className={`flex flex-grow`}>
         <img
+          className={`object-fill h-screen flex-grow`}
           alt={`Plan ${data.name} Floorplan`}
           src={`/imgs/plans/${data.name}.png`}
         />
       </div>
-      <div className="w-[20vw]">
-        <Form method={"post"}>
+      <div>
+        <Form className={`flex flex-col gap-4 mx-2`} method={"post"}>
           <input type={"hidden"} name={"plan"} value={data.name} />
-          <div className="flex flex-row">
-            <h2 className="flex-grow text-3xl font-bold">{`Plan ${data.name}`}</h2>
-            <Link to={`/?plan=${data.name}`}>Change floorplan</Link>
+          <div className="font-serif flex flex-col place-center mt-2 py-4 border border-black rounded-lg text-center">
+            <h2 className="uppercase text-3xl font-bold flex-grow text-aqua">{`Plan ${data.name}`}</h2>
+            <Link className={`hover:text-aqua hover:underline hover:decoration-2 hover:decocation-aqua transition-all duration-300 ease-in-out`} to={`/?plan=${data.name}`}>Change floorplan</Link>
           </div>
 
-          <div className="border-4 flex flex-col text-xl">
-            <p>{`${data.sqFt} Sq.Ft.`}</p>
-            <div className="flex flex-row"><p>{`${data.beds} Bedroom`}</p>
+          <div className="flex flex-col text-xl">
+            <div className="flex flex-col font-serifCaps font-bold">
+              <p>{`${data.beds} Bedroom`}</p>
               <p>{`${data.baths} Bath`}</p>
             </div>
+            <p className={`font-serif`}>
+              {`${data.sqFt}`} <span className={`font-bold uppercase`}>Sq.Ft.</span>
+            </p>
           </div>
 
           <div
             className={`
-              flex
-              flex-wrap
-              gap-4
-              place-center
+            max-h-[70vh]
+            overflow-scroll
             `}
           >
             {
-              data.units?.map((number: number) => <UnitButton key={number} number={number} />)
+              data.units.map((number: number) => <div key={number} className={`my-2`}><UnitButton number={number} /></div>)
             }
           </div>
         </Form>

@@ -8,6 +8,8 @@ const UnitButton: React.FC<UnitButtonProps> = ({number}): JSX.Element => {
   return (
     <button
       className={`
+      group
+      hover:bg-aqua
             py-4
               block
               border-2
@@ -16,13 +18,14 @@ const UnitButton: React.FC<UnitButtonProps> = ({number}): JSX.Element => {
               rounded-lg
               w-64
               overflow-hidden
+              hover:border-black
             `}
       name={"unit"}
       value={number}
       type={"submit"}
     >
-      <div className="hover:text-white">
-        <p className="text-center">Unit {number}</p>
+      <div className="text-black group-hover:text-white font-serif">
+        <p className="text-center"><span className={`font-bold uppercase`}>Unit</span> {number}</p>
       </div>
     </button>
   )
