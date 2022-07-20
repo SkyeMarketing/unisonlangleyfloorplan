@@ -5,7 +5,10 @@ const A4: PlanData = {
   baths: 1, beds: 1,
   name: "A4",
   sqFt: 646,
-  unavailable: false
+  unavailable: false,
+  units: [
+    108,
+  ],
 }
 
 export default A4

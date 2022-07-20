@@ -6,7 +6,14 @@ const B2: PlanData = {
   beds: 2,
   name: "B2",
   sqFt: 863,
-  unavailable: false
+  unavailable: false,
+  units: [
+    216,
+    316,
+    416,
+    516,
+
+  ],
 }
 
 export default B2

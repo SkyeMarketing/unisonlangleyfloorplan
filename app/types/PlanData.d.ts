@@ -5,7 +5,7 @@ type PlanData = {
   name: string,
   sqFt: number,
   unavailable: boolean,
-  units?: number[],
+  units: number[],
 }
 
 export default PlanData;

@@ -6,7 +6,10 @@ const C2: PlanData = {
   beds: 3,
   name: "C2",
   sqFt: 1042,
-  unavailable: false
+  unavailable: false,
+  units: [
+    208,
+  ],
 }
 
 export default C2
