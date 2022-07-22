@@ -17,7 +17,6 @@ const PlanDisplay: React.FC<PlanDisplayProps> = ({plan}) => {
         border-2
         border-aqua
         rounded-lg
-        
       `}
     >
       <span className={`uppercase`}>Plan</span> {plan}
