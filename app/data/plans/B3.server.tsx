@@ -1,7 +1,7 @@
 import type PlanData from "~/types/PlanData";
 
 const B3: PlanData = {
-  category: "B+",
+  category: "B",
   baths: 1,
   beds: 2, 
   name: "B3", 
