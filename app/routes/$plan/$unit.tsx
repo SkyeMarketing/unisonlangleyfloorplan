@@ -61,12 +61,19 @@ const $Unit: React.FC = () => {
 
   const [fId, lId, eId, pId, rId] = [useId(), useId(), useId(), useId(), useId()];
   return (
-    <div className={`w-screen h-screen`}>
+    <div className={`w-128 h-screen`}>
       <Form className={`mx-auto w-90`} method="post">
         <input type="hidden" name="plan" value={plan} />
         <input type="hidden" name="unit" value={unit} />
 
-        <div>
+        <div
+          className={`
+            flex
+            flex-col
+            gap-4
+            w-80
+          `}
+        >
           <PlanDisplay plan={plan} />
 
           <UnitDisplay number={parseInt(unit)} />
