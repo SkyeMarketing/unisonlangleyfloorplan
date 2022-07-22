@@ -16,6 +16,8 @@ const CheckboxField: React.FC<CheckboxFieldProps> = ({content, name}) => {
           mr-4
           w-6
           h-6
+          border-2
+          border-aqua
         `}
         type="checkbox"
         name={name}
