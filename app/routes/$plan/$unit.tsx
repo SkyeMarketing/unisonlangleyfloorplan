@@ -62,8 +62,8 @@ const $Unit: React.FC = () => {
   const { plan, unit }: LoaderData = useLoaderData()
 
   return (
-    <div className={`w-128 h-screen`}>
-      <Form className={`w-128 px-16 py-8 flex flex-col place-center`} method="post">
+    <div className={`w-96 h-screen px-96`}>
+      <Form className={`px-16 py-8 flex flex-col place-center`} method="post">
         <input type="hidden" name="plan" value={plan} />
         <input type="hidden" name="unit" value={unit} />
 
@@ -71,9 +71,10 @@ const $Unit: React.FC = () => {
           className={`
             flex
             flex-row
-            gap-4
+            gap-8
             w-96
-            place-center
+            items-center
+            justify-center
           `}
         >
           <PlanDisplay plan={plan} />
@@ -81,7 +82,7 @@ const $Unit: React.FC = () => {
           <UnitDisplay number={parseInt(unit)} />
         </div>
 
-        <div className={`w-96 mt-4 border border-aqua h-px w-128`}>
+        <div className={`w-96 mt-4 border border-aqua h-px`}>
           <></>
         </div>
 
@@ -92,6 +93,7 @@ const $Unit: React.FC = () => {
             flex-col
             gap-4
             py-4
+            w-96
           `}
         >
 

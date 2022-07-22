@@ -13,6 +13,7 @@ const InputField: React.FC<InputFieldProps> = ({...props}) => {
         flex
         flex-col
         gap-2
+        w-80
       `}
     >
       <label
@@ -34,7 +35,7 @@ const InputField: React.FC<InputFieldProps> = ({...props}) => {
           focus:border-aqua
           hover:border-aqua
           inline-block
-          w-80
+          w-96
           font-serif
           text-xl
           rounded-lg
