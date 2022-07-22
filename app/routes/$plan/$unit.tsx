@@ -5,6 +5,7 @@ import React, {useId} from "react";
 import SubmitButton from "~/components/SubmitButton";
 import PlanDisplay from "~/components/PlanDisplay";
 import UnitDisplay from "~/components/UnitDisplay";
+import CheckboxField from "~/components/CheckboxField";
 
 interface ProcessExt extends NodeJS.ProcessEnv {
   ZAPIER_WEBHOOK: string
@@ -59,7 +60,7 @@ export const loader: LoaderFunction = ({ params }): LoaderData | Response => {
 const $Unit: React.FC = () => {
   const { plan, unit }: LoaderData = useLoaderData()
 
-  const [fId, lId, eId, pId, rId] = [useId(), useId(), useId(), useId(), useId()];
+  const [fId, lId, eId, pId] = [useId(), useId(), useId(), useId()];
   return (
     <div className={`w-128 h-screen`}>
       <Form className={`mx-auto w-90`} method="post">
@@ -79,32 +80,38 @@ const $Unit: React.FC = () => {
           <UnitDisplay number={parseInt(unit)} />
         </div>
 
-        <div>
-          <label>First Name</label>
-          <input type="text" name="firstName" placeholder="First Name" id={fId} />
-        </div>
+        <div
+          className={`
+            flex
+            flex-col
+            gap-4
+          `}
+        >
 
-        <div>
-          <label htmlFor={lId}>Last Name</label>
-          <input type="text" name="lastName" placeholder="Last Name" id={lId} />
-        </div>
+          <div>
+            <label>First Name</label>
+            <input type="text" name="firstName" placeholder="First Name" id={fId} />
+          </div>
 
-        <div>
-          <label htmlFor={eId}>Email</label>
-          <input type="email" name="email" placeholder="Email" id={eId} />
-        </div>
+          <div>
+            <label htmlFor={lId}>Last Name</label>
+            <input type="text" name="lastName" placeholder="Last Name" id={lId} />
+          </div>
 
-        <div>
-          <label htmlFor={pId}>Phone Number</label>
-          <input type="tel" name="phone" placeholder="Phone Number" id={pId} />
-        </div>
+          <div>
+            <label htmlFor={eId}>Email</label>
+            <input type="email" name="email" placeholder="Email" id={eId} />
+          </div>
+
+          <div>
+            <label htmlFor={pId}>Phone Number</label>
+            <input type="tel" name="phone" placeholder="Phone Number" id={pId} />
+          </div>
         
-        <div>
-          <input type="checkbox" name="realtor" id={rId} />
-          <label htmlFor={rId}>I am a Realtor</label>
-        </div>
+          <CheckboxField content={"I am a Realtor"} name={"realtor"} />
 
-        <SubmitButton />
+          <SubmitButton />
+        </div>
       </Form>
     </div>
   )
