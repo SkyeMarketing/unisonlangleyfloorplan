@@ -20,7 +20,7 @@ const PlanDisplay: React.FC<PlanDisplayProps> = ({plan}) => {
         
       `}
     >
-      {plan}
+      <span className={`uppercase`}>Plan</span> {plan}
     </p>
   )
 }
