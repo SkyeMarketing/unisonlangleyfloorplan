@@ -1,7 +1,7 @@
 import type { ActionFunction, LoaderFunction} from "@remix-run/node";
 import { redirect } from "@remix-run/node";
 import { Form, useLoaderData } from "@remix-run/react";
-import React, {useId} from "react";
+import React from "react";
 import SubmitButton from "~/components/SubmitButton";
 import PlanDisplay from "~/components/PlanDisplay";
 import UnitDisplay from "~/components/UnitDisplay";
@@ -23,7 +23,7 @@ export const action: ActionFunction = async ({ request }): Promise<Response> => 
   const phone = formData.get("phone");
   const realtor = formData.get("realtor");
 
-  const zapier = await fetch((process.env as ProcessExt).ZAPIER_WEBHOOK, {
+  const zapier = await fetch(new URL((process.env as ProcessExt).ZAPIER_WEBHOOK), {
     method: "POST",
     body: JSON.stringify({
       plan,
