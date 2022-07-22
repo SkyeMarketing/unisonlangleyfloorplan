@@ -4,6 +4,7 @@ import { Form, useLoaderData } from "@remix-run/react";
 import React, {useId} from "react";
 import SubmitButton from "~/components/SubmitButton";
 import PlanDisplay from "~/components/PlanDisplay";
+import UnitDisplay from "~/components/UnitDisplay";
 
 interface ProcessExt extends NodeJS.ProcessEnv {
   ZAPIER_WEBHOOK: string
@@ -68,25 +69,7 @@ const $Unit: React.FC = () => {
         <div>
           <PlanDisplay plan={plan} />
 
-          <div>
-            <h2>
-              <div
-                className={`
-              block
-              border-2
-              border-black
-              peer-checked:border-aqua
-              rounded-lg
-              w-64
-              overflow-hidden
-            `}
-              >
-                <div>
-                  <h2>{unit}</h2>
-                </div>
-              </div>
-            </h2>
-          </div>
+          <UnitDisplay number={parseInt(unit)} />
         </div>
 
         <div>
