@@ -4,17 +4,19 @@ const SubmitButton: React.FC = () => {
   return (
     <button
       className={`
-      group
-      hover:bg-aqua
+            group
+            hover:bg-aqua
             py-4
               block
               border-2
+              border-aqua
               peer-hover:bg-aqua
               peer-checked:border-aqua
               rounded-lg
-              w-64
+              w-80
               overflow-hidden
               hover:border-black
+              text-2xl
             `}
       type={"submit"}
     >
