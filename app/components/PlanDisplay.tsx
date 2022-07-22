@@ -9,7 +9,7 @@ const PlanDisplay: React.FC<PlanDisplayProps> = ({plan}) => {
       className={`
         px-8
         py-4
-        text-5xl
+        text-2xl
         text-black
         hover:text-aqua
         font-serif
@@ -17,6 +17,7 @@ const PlanDisplay: React.FC<PlanDisplayProps> = ({plan}) => {
         border-2
         border-aqua
         rounded-lg
+        text-center
       `}
     >
       <span className={`uppercase`}>Plan</span> {plan}

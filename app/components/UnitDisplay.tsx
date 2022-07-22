@@ -8,9 +8,9 @@ const UnitDisplay: React.FC<UnitDisplayProps> = ({number}) => {
   return (
     <p
       className={`
-        px-8
+       px-8
         py-4
-        text-5xl
+        text-2xl
         text-black
         hover:text-aqua
         font-serif
@@ -18,7 +18,7 @@ const UnitDisplay: React.FC<UnitDisplayProps> = ({number}) => {
         border-2
         border-aqua
         rounded-lg
-        
+        text-center
       `}
     >
       <span className={`uppercase`}>Unit</span> {number}
