@@ -1,9 +1,9 @@
 import type { ActionFunction, LoaderFunction} from "@remix-run/node";
 import { redirect } from "@remix-run/node";
 import { Form, useLoaderData } from "@remix-run/react";
-import React, { useId } from "react";
+import React, {useId} from "react";
 import SubmitButton from "~/components/SubmitButton";
-
+import PlanDisplay from "~/components/PlanDisplay";
 
 interface ProcessExt extends NodeJS.ProcessEnv {
   ZAPIER_WEBHOOK: string
@@ -60,17 +60,13 @@ const $Unit: React.FC = () => {
 
   const [fId, lId, eId, pId, rId] = [useId(), useId(), useId(), useId(), useId()];
   return (
-    <div className={`w-screen h-screen  bg-red-500`}>
+    <div className={`w-screen h-screen`}>
       <Form className={`mx-auto w-90`} method="post">
         <input type="hidden" name="plan" value={plan} />
         <input type="hidden" name="unit" value={unit} />
 
         <div>
-          <div>
-            <h2>
-              Plan {plan}
-            </h2>
-          </div>
+          <PlanDisplay plan={plan} />
 
           <div>
             <h2>
@@ -112,7 +108,7 @@ const $Unit: React.FC = () => {
           <label htmlFor={pId}>Phone Number</label>
           <input type="tel" name="phone" placeholder="Phone Number" id={pId} />
         </div>
-
+        
         <div>
           <input type="checkbox" name="realtor" id={rId} />
           <label htmlFor={rId}>I am a Realtor</label>
