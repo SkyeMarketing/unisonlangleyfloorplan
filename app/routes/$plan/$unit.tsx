@@ -65,13 +65,25 @@ const $Unit: React.FC = () => {
 
     <div
       className={`
-          w-screen
           overflow-scroll
           flex
           justify-center
           items-center
         `}
     >
+      <div
+        className={`
+          flex 
+          flex-grow
+        `}
+      >
+        <img
+          className={`object-fill flex-grow max-h-screen`}
+          alt={`Plan ${plan} Floorplan`}
+          src={`/imgs/plans/${plan}.png`}
+        />
+      </div>
+
       <Form
         className={`
             px-4
@@ -92,7 +104,7 @@ const $Unit: React.FC = () => {
         >
           <PlanDisplay plan={plan}/>
 
-          <UnitDisplay number={parseInt(unit)}/>
+          <UnitDisplay plan={plan} number={parseInt(unit)}/>
         </div>
 
         <hr
@@ -150,6 +162,8 @@ const $Unit: React.FC = () => {
           <SubmitButton/>
         </div>
       </Form>
+
+
     </div>
   )
 }

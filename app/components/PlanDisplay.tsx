@@ -1,11 +1,12 @@
 import React from "react";
+import {Link} from "@remix-run/react";
 
 export type PlanDisplayProps = {
   plan: string,
 }
 const PlanDisplay: React.FC<PlanDisplayProps> = ({plan}) => {
   return (
-    <p
+    <Link
       className={`
         px-8
         py-4
@@ -19,9 +20,10 @@ const PlanDisplay: React.FC<PlanDisplayProps> = ({plan}) => {
         rounded-lg
         text-center
       `}
+      to={`/`}
     >
       <span className={`uppercase`}>Plan</span> {plan}
-    </p>
+    </Link>
   )
 }
 export default PlanDisplay

@@ -1,12 +1,14 @@
 import React from "react";
+import {Link} from "@remix-run/react";
 
 export type UnitDisplayProps = {
   number: number,
+  plan: string,
 }
 
-const UnitDisplay: React.FC<UnitDisplayProps> = ({number}) => {
+const UnitDisplay: React.FC<UnitDisplayProps> = ({number, plan}) => {
   return (
-    <p
+    <Link
       className={`
        px-8
         py-4
@@ -20,9 +22,10 @@ const UnitDisplay: React.FC<UnitDisplayProps> = ({number}) => {
         rounded-lg
         text-center
       `}
+      to={`/${plan}`}
     >
       <span className={`uppercase`}>Unit</span> {number}
-    </p>
+    </Link>
   )
 }
 export default UnitDisplay
