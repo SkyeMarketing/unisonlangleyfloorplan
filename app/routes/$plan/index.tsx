@@ -62,23 +62,31 @@ const $Plan: React.FC = (): JSX.Element => {
   const data: UnitData$Client = useLoaderData()
 
   return (
-    <div className="flex flex-row">
-      <div className={`flex flex-grow`}>
+    <div className={`
+        flex 
+        flex-col lg:flex-row
+      `}>
+      <div
+        className={`
+          flex 
+          flex-grow
+        `}
+      >
         <img
-          className={`object-fill h-screen flex-grow`}
+          className={`object-fill flex-grow max-h-screen`}
           alt={`Plan ${data.name} Floorplan`}
           src={`/imgs/plans/${data.name}.png`}
         />
       </div>
       <div>
-        <Form className={`flex flex-col gap-4 mx-2`} method={"post"}>
+        <Form className={`flex flex-col gap-4 mx-2 h-screen px-4`} method={"post"}>
           <input type={"hidden"} name={"plan"} value={data.name} />
           <div className="font-serif flex flex-col place-center mt-2 py-4 border border-black rounded-lg text-center">
             <h2 className="uppercase text-3xl font-bold flex-grow text-aqua">{`Plan ${data.name}`}</h2>
             <Link className={`hover:text-aqua hover:underline hover:decoration-2 hover:decocation-aqua transition-all duration-300 ease-in-out`} to={`/?plan=${data.name}`}>Change floorplan</Link>
           </div>
 
-          <div className="flex flex-col text-xl">
+          <div className="flex flex-col text-xl text-center">
             <div className="flex flex-col font-serifCaps font-bold">
               <p>{`${data.beds} Bedroom`}</p>
               <p>{`${data.baths} Bath`}</p>
@@ -90,8 +98,12 @@ const $Plan: React.FC = (): JSX.Element => {
 
           <div
             className={`
-            max-h-[70vh]
-            overflow-scroll
+              md:w-full
+              md:flex lg:block
+              gap-x-2
+              gap-y-4
+              md:flex-wrap
+              overflow-scroll
             `}
           >
             {
