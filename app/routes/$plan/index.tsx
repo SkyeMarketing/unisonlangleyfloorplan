@@ -87,23 +87,26 @@ const $Plan: React.FC = (): JSX.Element => {
           </div>
 
           <div className="flex flex-col text-xl text-center">
-            <div className="flex flex-col font-serifCaps font-bold">
+            <div className="flex flex-col font-serif uppercase">
               <p>{`${data.beds} Bedroom`}</p>
               <p>{`${data.baths} Bath`}</p>
             </div>
-            <p className={`font-serif`}>
-              {`${data.sqFt}`} <span className={`font-bold uppercase`}>Sq.Ft.</span>
-            </p>
+            <div className="flex flex-col font-serif uppercase">
+              <p>{`${data.sqFt} Sq.Ft.`}</p>
+            </div>
           </div>
 
           <div
             className={`
               md:w-full
-              md:flex lg:block
+              flex md:flex lg:block
+              flex-col md:flex-row lg:flex-col
               gap-x-2
               gap-y-4
               md:flex-wrap
               overflow-scroll
+              justify-center
+              items-center
             `}
           >
             {

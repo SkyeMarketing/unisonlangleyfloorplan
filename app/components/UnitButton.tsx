@@ -25,7 +25,7 @@ const UnitButton: React.FC<UnitButtonProps> = ({number}): JSX.Element => {
       type={"submit"}
     >
       <div className="text-black group-hover:text-white font-serif">
-        <p className="text-center"><span className={`font-bold uppercase`}>Unit</span> {number}</p>
+        <p className="text-center">{number}</p>
       </div>
     </button>
   )
