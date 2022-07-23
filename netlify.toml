@@ -1,5 +1,5 @@
 [build]
-  command = "remix build"
+  command = "tailwindcss -m -i styles/app.css -o styles/app.css && remix build"
   publish = "public"
 
 [dev]
