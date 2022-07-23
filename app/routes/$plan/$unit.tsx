@@ -1,6 +1,6 @@
-import type { ActionFunction, LoaderFunction} from "@remix-run/node";
-import { redirect } from "@remix-run/node";
-import { Form, useLoaderData } from "@remix-run/react";
+import type {ActionFunction, LoaderFunction} from "@remix-run/node";
+import {redirect} from "@remix-run/node";
+import {Form, useLoaderData} from "@remix-run/react";
 import React from "react";
 import SubmitButton from "~/components/SubmitButton";
 import PlanDisplay from "~/components/PlanDisplay";
@@ -12,7 +12,7 @@ interface ProcessExt extends NodeJS.ProcessEnv {
   ZAPIER_WEBHOOK: string
 }
 
-export const action: ActionFunction = async ({ request }): Promise<Response> => {
+export const action: ActionFunction = async ({request}): Promise<Response> => {
   const formData = await request.formData();
 
   const plan = formData.get("plan");
@@ -43,7 +43,7 @@ export type LoaderData = {
   plan: string,
   unit: string,
 }
-export const loader: LoaderFunction = ({ params }): LoaderData | Response => {
+export const loader: LoaderFunction = ({params}): LoaderData | Response => {
   const plan = params["plan"]
   const unit = params["unit"]
 
@@ -55,59 +55,99 @@ export const loader: LoaderFunction = ({ params }): LoaderData | Response => {
     return redirect(`/${plan}`)
   }
 
-  return { plan, unit };
+  return {plan, unit};
 }
 
 const $Unit: React.FC = () => {
-  const { plan, unit }: LoaderData = useLoaderData()
+  const {plan, unit}: LoaderData = useLoaderData()
 
   return (
-    <div className={`w-96 h-screen px-96`}>
-      <Form className={`px-16 py-8 flex flex-col place-center`} method="post">
-        <input type="hidden" name="plan" value={plan} />
-        <input type="hidden" name="unit" value={unit} />
+
+    <div
+      className={`
+          w-screen
+          overflow-scroll
+          flex
+          justify-center
+          items-center
+        `}
+    >
+      <Form
+        className={`
+            px-4
+            py-8
+          `}
+        method={"post"}
+      >
+        <input type="hidden" name="plan" value={plan}/>
+        <input type="hidden" name="unit" value={unit}/>
 
         <div
           className={`
-            flex
-            flex-row
-            gap-8
-            w-96
-            items-center
-            justify-center
-          `}
+              flex
+              flex-col md:flex-row
+              gap-8
+              px-4 md:px-auto
+            `}
         >
-          <PlanDisplay plan={plan} />
+          <PlanDisplay plan={plan}/>
 
-          <UnitDisplay number={parseInt(unit)} />
+          <UnitDisplay number={parseInt(unit)}/>
         </div>
 
-        <div className={`w-96 mt-4 border border-aqua h-px`}>
-          <></>
-        </div>
-
+        <hr
+          className={`
+              my-4
+              h-px
+              mx-auto
+              w-full
+              border-2
+              border-aqua
+              rounded-full
+            `}
+        />
 
         <div
           className={`
-            flex
-            flex-col
-            gap-4
-            py-4
-            w-96
-          `}
+              flex
+              flex-col
+              gap-8
+              my-4
+              py-4
+              items-center
+            `}
         >
+          <InputField
+            label={"First Name"}
+            name={`firstName`}
+            type={`text`}
+            autoComplete={`given-name`}
+          />
+          <InputField
+            label={"Last Name"}
+            name={`lastName`}
+            type={`text`}
+            autoComplete={`family-name`}
+          />
+          <InputField
+            label={"Email"}
+            name={`email`}
+            type={`email`}
+            autoComplete={`email`}
+          />
+          <InputField
+            label={"Phone Number"}
+            name={`phoneNumber`}
+            type={`tel`}
+            autoComplete={`tel-national`}
+          />
 
-          <InputField label={"First Name"} type={"text"} name={"firstName"} />
+          <CheckboxField
+            content={"I am a Realtor"}
+            name={"realtor"}
+          />
 
-          <InputField label={"Last Name"} type={"text"} name={"lastName"} />
-
-          <InputField label={"Email"} type={"email"} name={`email`} />
-
-          <InputField name={"phone"} type={"tel"} label={"Phone Number"} />
-        
-          <CheckboxField content={"I am a Realtor"} name={"realtor"} />
-
-          <SubmitButton />
+          <SubmitButton/>
         </div>
       </Form>
     </div>
