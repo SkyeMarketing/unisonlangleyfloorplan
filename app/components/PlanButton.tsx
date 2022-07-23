@@ -11,13 +11,10 @@ const PlanButton: React.FC<PlanButtonProps> = ({plan}) => {
       className={`
         group
         block
-        border-2
-        hover:border-[4px]
-        border-black
-        hover:border-aqua
-        rounded-lg
-        hover:rounded-md
-        w-80
+        border-2 hover:border-[4px]
+        border-black hover:border-aqua
+        rounded-lg hover:rounded-md
+        w-64 md:w-80
         overflow-hidden
       `}
       name={`plan`}
@@ -26,50 +23,50 @@ const PlanButton: React.FC<PlanButtonProps> = ({plan}) => {
     >
       <img
         className={`
-                border-b-1
-                border-aqua
-              `}
+          border-b-1
+          border-aqua
+        `}
         alt={`Plan ${plan.name} Floorplan`}
         src={`/imgs/plans/${plan.name}.png`}
       />
       <div
         className={`
-                place-center
-                text-center
-                py-8
-                border-t
-                border-aqua
-                bg-grey/10
-                group-hover:bg-aqua
-                transition-all
-                ease-in-out
-                duration-300
-              `}
+          place-center
+          text-center
+          py-8
+          border-t
+          border-aqua
+          bg-grey/10
+          group-hover:bg-aqua
+          transition-all
+          ease-in-out
+          duration-300
+        `}
       >
         <h2
           className={`
-                    text-2xl
-                    font-bold
-                    font-serifCaps
-                    text-black
-                    group-hover:underline 
-                    group-hover:decoration-white 
-                    group-hover:decoration-4
-                    group-hover:text-white
-                `}
+            text-2xl
+            font-bold
+            font-serifCaps
+            text-black
+            group-hover:underline 
+            group-hover:decoration-white 
+            group-hover:decoration-4
+            group-hover:text-white
+        `}
         >
           {`Plan ${plan.name}`}
         </h2>
         <ul
           className={`
-                    text-lg
-                    font-bold
-                    font-serif
-                    uppercase
-                  `}
+            text-lg
+            font-bold
+            font-serif
+            uppercase
+          `}
         >
           <li>
-            {`${plan.beds} Bedroom${plan.beds > 1 ? 's' : ''}`}
+            {`${plan.beds} Bedroom${plan.beds > 1 ? 's' : null}`}
           </li>
           <li>
             {`${plan.sqFt} Sq.Ft.`}

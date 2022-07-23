@@ -1,10 +1,11 @@
 import type {ActionFunction, LoaderFunction} from "@remix-run/node";
+import {redirect} from "@remix-run/node";
 import Plans from "~/data/plans/Plans.server";
 import {Form, useLoaderData} from "@remix-run/react";
 import type PlanData$Client from "~/types/PlanData$Client";
 import type PlanData from "~/types/PlanData";
 import PlanButton from "~/components/PlanButton";
-import {redirect} from "@remix-run/node";
+import React from "react";
 
 export const action: ActionFunction = async ({request}): Promise<Response> => {
   const formData = await request.formData()
@@ -42,35 +43,53 @@ const Index: React.FC = (): JSX.Element => {
   const data: PlanData$Client = useLoaderData()
 
   return (
-    <Form
-      className={`
-        px-16
-        flex
-        flex-col
-        place-center
-      `}
-      method={"post"}
-    >
-      {
-        Object
-          .keys(data)
-          .map((key) => {
-              const plans = data[key];
 
+    <div
+      className={`
+          container
+          mx-auto
+          px-8
+          py-16
+          flex
+          justify-center
+        `}
+    >
+      <Form
+        className={`
+            flex
+            flex-col
+            flex-wrap
+            gap-y-4
+          `}
+        method={"post"}
+      >
+        {
+          Object
+            .entries(data)
+            .map(([category, plans]) => {
               return (
-                <fieldset className={`mt-4
-                      mx-2 px-2 py-4`} key={key}>
+                <fieldset
+                  className={`
+                      mt-4
+                      mx-2 
+                      px-2 
+                      py-4
+                      
+                    `}
+                  key={category}
+                >
                   <legend
                     className={`
-                      font-serif
-                      underline
-                      decoration-4
-                      decoration-aqua
-                      text-2xl
-                    `}
+                        font-serif
+                        underline
+                        decoration-4
+                        decoration-aqua
+                        text-2xl
+                      `}
                   >
-                    {key}
+                    {category}
                   </legend>
+
                   <div
                     className={`
                         flex
@@ -80,17 +99,23 @@ const Index: React.FC = (): JSX.Element => {
                       `}
                   >
                     {
-                      plans.map(plan => {
-                        return <PlanButton key={plan.name} plan={plan}/>
-                      })
+                      plans
+                        .map((plan) => {
+                          return (
+                            <PlanButton
+                              key={plan.name}
+                              plan={plan}
+                            />
+                          )
+                        })
                     }
                   </div>
                 </fieldset>
               )
-            }
-          )
-      }
-    </Form>
+            })
+        }
+      </Form>
+    </div>
   );
 }
 export default Index
