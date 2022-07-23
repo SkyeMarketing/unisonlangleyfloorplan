@@ -43,6 +43,7 @@ const InputField: React.FC<InputFieldProps> = ({...props}) => {
         type={props.type}
         name={props.name}
         id={id}
+        required={true}
       />
     </div>
   )

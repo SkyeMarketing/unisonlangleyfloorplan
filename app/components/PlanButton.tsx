@@ -63,10 +63,12 @@ const PlanButton: React.FC<PlanButtonProps> = ({plan}) => {
             font-bold
             font-serif
             uppercase
+            group-hover:text-white
+            mt-4
           `}
         >
           <li>
-            {`${plan.beds} Bedroom${plan.beds > 1 ? 's' : null}`}
+            {`${plan.beds} Bedroom${plan.beds > 1 ? 's' : ''}`}
           </li>
           <li>
             {`${plan.sqFt} Sq.Ft.`}

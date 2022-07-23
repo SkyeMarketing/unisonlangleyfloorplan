@@ -70,10 +70,10 @@ const Index: React.FC = (): JSX.Element => {
               return (
                 <fieldset
                   className={`
-                      mt-4
+                      mt-16
                       mx-2 
                       px-2 
-                      py-4
+                      py-8
                       
                     `}
                   key={category}
@@ -81,10 +81,10 @@ const Index: React.FC = (): JSX.Element => {
                   <legend
                     className={`
                         font-serif
-                        underline
-                        decoration-4
-                        decoration-aqua
-                        text-2xl
+                        text-7xl
+                        font-bold
+                        text-center
+                        text-aqua
                       `}
                   >
                     {category}
@@ -96,6 +96,9 @@ const Index: React.FC = (): JSX.Element => {
                         flex-row
                         flex-wrap
                         gap-4
+                        justify-center
+                        items-center
+                        my-8
                       `}
                   >
                     {
