@@ -67,6 +67,7 @@ const $Unit: React.FC = () => {
       className={`
           overflow-scroll
           flex
+          flex-col-reverse lg:flex-row
           justify-center
           items-center
         `}
