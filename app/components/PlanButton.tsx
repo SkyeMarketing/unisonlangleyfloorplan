@@ -22,11 +22,12 @@ const PlanButton: React.FC<PlanButtonProps> = ({plan}) => {
       type={"submit"}
     >
       <img
+        alt={`Plan ${plan.name} Floorplan`}
         className={`
           border-b-1
           border-aqua
         `}
-        alt={`Plan ${plan.name} Floorplan`}
+        loading={"lazy"}
         src={`/imgs/plans/${plan.name}.png`}
       />
       <div
