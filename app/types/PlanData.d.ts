@@ -1,4 +1,4 @@
-type PlanData = {
+declare type PlanData = {
   baths: number,
   beds: number,
   category: string,
