@@ -65,11 +65,13 @@ const $Unit: React.FC = () => {
 
     <div
       className={`
-          overflow-scroll
-          flex
-          flex-col-reverse lg:flex-row
-          justify-center
-          items-center
+        container
+        mx-auto
+        overflow-auto
+        flex
+        flex-col-reverse lg:flex-row
+        justify-center
+        items-center
         `}
     >
       <div

@@ -63,6 +63,8 @@ const $Plan: React.FC = (): JSX.Element => {
 
   return (
     <div className={`
+        mx-auto
+        container
         flex 
         flex-col lg:flex-row
       `}>
@@ -104,7 +106,7 @@ const $Plan: React.FC = (): JSX.Element => {
               gap-x-2
               gap-y-4
               md:flex-wrap
-              overflow-scroll
+              overflow-auto
               justify-center
               items-center
             `}
