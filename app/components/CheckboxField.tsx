@@ -23,6 +23,7 @@ const CheckboxField: React.FC<CheckboxFieldProps> = ({content, name}) => {
         name={name}
         id={id}
         required={true}
+        value={`Yes`}
       />
       <label
         className={`
