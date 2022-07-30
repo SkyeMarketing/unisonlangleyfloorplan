@@ -65,6 +65,7 @@ const $Plan: React.FC = (): JSX.Element => {
     <div className={`
         mx-auto
         container
+        bg-white
         flex 
         flex-col lg:flex-row
       `}>
@@ -77,7 +78,7 @@ const $Plan: React.FC = (): JSX.Element => {
         <img
           className={`object-fill flex-grow max-h-screen`}
           alt={`Plan ${data.name} Floorplan`}
-          src={`/imgs/plans/${data.name}.png`}
+          src={`/imgs/plans/${data.name}.jpg`}
         />
       </div>
       <div>

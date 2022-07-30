@@ -47,6 +47,7 @@ const Index: React.FC = (): JSX.Element => {
     <div
       className={`
           container
+          bg-white
           mx-auto
           px-8
           py-16

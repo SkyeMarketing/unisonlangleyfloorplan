@@ -66,6 +66,7 @@ const $Unit: React.FC = () => {
     <div
       className={`
         container
+        bg-white
         mx-auto
         overflow-auto
         flex
@@ -83,7 +84,7 @@ const $Unit: React.FC = () => {
         <img
           className={`object-fill flex-grow max-h-screen`}
           alt={`Plan ${plan} Floorplan`}
-          src={`/imgs/plans/${plan}.png`}
+          src={`/imgs/plans/${plan}.jpg`}
         />
       </div>
 
