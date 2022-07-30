@@ -5,7 +5,7 @@ import {
   Meta,
   Outlet,
   Scripts,
-  ScrollRestoration, useCatch,
+  ScrollRestoration,
 } from "@remix-run/react";
 
 import React from "react";
@@ -44,7 +44,7 @@ const App: React.FC = () => {
         <Meta />
       </head>
 
-      <body>
+      <body className={`bg-grey`}>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
