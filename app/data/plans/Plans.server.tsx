@@ -13,7 +13,7 @@ import A5 from "~/data/plans/A5.server";
 import A4 from "~/data/plans/A4.server";
 import C2 from "~/data/plans/C2.server";
 import C3 from "~/data/plans/C3.server";
-import S1 from "~/data/plans/S1.server";
+import A from "~/data/plans/A.server";
 
 const Plans: PlanData[] = [
   A1,
@@ -30,7 +30,7 @@ const Plans: PlanData[] = [
   C1,
   C2,
   C3,
-  S1,
+  A,
 ]
 
 export default Plans

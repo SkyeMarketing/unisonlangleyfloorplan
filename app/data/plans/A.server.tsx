@@ -1,10 +1,10 @@
 import type PlanData from "~/types/PlanData";
 
-const S1: PlanData = {
-  category: "S",
+const A: PlanData = {
+  category: "A",
   baths: 1,
   beds: 1,
-  name: "S1",
+  name: "A",
   sqFt: 464,
   unavailable: false,
   units: [
@@ -27,4 +27,4 @@ const S1: PlanData = {
   ],
 }
 
-export default S1
+export default A
