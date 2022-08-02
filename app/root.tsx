@@ -44,7 +44,7 @@ const App: React.FC = () => {
         <Meta />
       </head>
 
-      <body className={`bg-grey`}>
+      <body className={`bg-grey h-screen`}>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
