@@ -73,6 +73,7 @@ const $Unit: React.FC = () => {
         flex-col-reverse lg:flex-row
         justify-center
         items-center
+        h-screen
         `}
     >
       <div
@@ -82,7 +83,7 @@ const $Unit: React.FC = () => {
         `}
       >
         <img
-          className={`object-fill flex-grow max-h-screen`}
+          className={`object-fill flex-grow aspect-w-3 aspect-h-2`}
           alt={`Plan ${plan} Floorplan`}
           src={`/imgs/plans/${plan}.jpg`}
         />
