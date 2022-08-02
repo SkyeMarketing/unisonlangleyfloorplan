@@ -72,8 +72,6 @@ const $Unit: React.FC = () => {
         flex
         flex-col-reverse lg:flex-row
         justify-center
-        lg:items-center
-        h-screen
         `}
     >
       <div

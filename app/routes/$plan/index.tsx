@@ -62,13 +62,18 @@ const $Plan: React.FC = (): JSX.Element => {
   const data: UnitData$Client = useLoaderData()
 
   return (
-    <div className={`
+    <div
+      className={`
         container
         mx-auto
         bg-white
-        flex 
-        flex-col lg:flex-row
-      `}>
+        overflow-auto
+        flex
+        flex-col-reverse lg:flex-row
+        justify-center
+        
+        `}
+    >
       <div
         className={`
           flex 
@@ -76,7 +81,7 @@ const $Plan: React.FC = (): JSX.Element => {
         `}
       >
         <img
-          className={`object-fill flex-grow lg:aspect-w-3 lg:aspect-h-2`}
+          className={`object-fill flex-grow lg:aspect-w-3 lg:aspect-h-2 my-auto`}
           alt={`Plan ${data.name} Floorplan`}
           src={`/imgs/plans/${data.name}.jpg`}
         />
