@@ -27,7 +27,6 @@ const PlanButton: React.FC<PlanButtonProps> = ({plan}) => {
           border-b-1
           border-aqua
         `}
-        loading={"lazy"}
         src={`/imgs/plans/${plan.name}.jpg`}
       />
       <div
