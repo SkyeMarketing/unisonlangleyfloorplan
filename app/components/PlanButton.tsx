@@ -11,7 +11,7 @@ const PlanButton: React.FC<PlanButtonProps> = ({plan}) => {
       className={`
         group
         block
-        border-2 hover:border-[4px]
+        border-2
         border-black hover:border-aqua
         rounded-lg hover:rounded-md
         w-64 md:w-80
