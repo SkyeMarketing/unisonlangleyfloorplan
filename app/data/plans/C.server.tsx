@@ -1,4 +1,4 @@
-import PlanData from "~/types/PlanData";
+import type PlanData from "~/types/PlanData";
 
 const C: PlanData = {
   baths: 2,
