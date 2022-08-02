@@ -77,7 +77,7 @@ const $Unit: React.FC = () => {
     >
       <div
         className={`
-          lg:flex-grow
+          flex-grow
         `}
       >
         <img

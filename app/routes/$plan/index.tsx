@@ -69,14 +69,14 @@ const $Plan: React.FC = (): JSX.Element => {
         bg-white
         overflow-auto
         flex
-        flex-col lg:flex-row
+        flex-col-reverse lg:flex-row
         justify-center
         h-full
         `}
     >
       <div
         className={` 
-          lg:flex-grow
+          flex-grow
         `}
       >
         <img
