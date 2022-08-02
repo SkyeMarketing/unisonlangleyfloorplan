@@ -76,7 +76,7 @@ const $Plan: React.FC = (): JSX.Element => {
         `}
       >
         <img
-          className={`object-fill flex-grow lg:aspect-[3/2]`}
+          className={`object-fill flex-grow lg:aspect-w-3 lg:aspect-h-2`}
           alt={`Plan ${data.name} Floorplan`}
           src={`/imgs/plans/${data.name}.jpg`}
         />

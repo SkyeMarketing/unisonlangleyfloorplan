@@ -5,6 +5,9 @@ module.exports = {
     content: [
         "./app/**/*.{js,ts,jsx,tsx}",
     ],
+    corePlugins: {
+        aspectRatio: false,
+    },
     theme: {
         extend: {
             colors: {
@@ -19,6 +22,8 @@ module.exports = {
                 serif: ["Frank Ruhl Libre", "serif"],
             },
         },
-        plugins: [],
-    }
+    },
+    plugins: [
+        require('@tailwindcss/aspect-ratio'),
+    ]
 }
