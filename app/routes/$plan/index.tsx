@@ -63,8 +63,8 @@ const $Plan: React.FC = (): JSX.Element => {
 
   return (
     <div className={`
-        mx-auto
         container
+        mx-auto
         bg-white
         flex 
         flex-col lg:flex-row

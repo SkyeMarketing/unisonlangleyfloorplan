@@ -66,13 +66,13 @@ const $Unit: React.FC = () => {
     <div
       className={`
         container
-        bg-white
         mx-auto
+        bg-white
         overflow-auto
         flex
         flex-col-reverse lg:flex-row
         justify-center
-        items-center
+        lg:items-center
         h-screen
         `}
     >
