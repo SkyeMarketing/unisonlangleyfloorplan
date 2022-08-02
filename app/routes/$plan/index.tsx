@@ -71,6 +71,7 @@ const $Plan: React.FC = (): JSX.Element => {
         flex
         flex-col-reverse lg:flex-row
         justify-center
+        h-full
         `}
     >
       <div

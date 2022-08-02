@@ -72,6 +72,7 @@ const $Unit: React.FC = () => {
         flex
         flex-col-reverse lg:flex-row
         justify-center
+        h-full
         `}
     >
       <div
