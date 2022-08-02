@@ -76,7 +76,7 @@ const $Plan: React.FC = (): JSX.Element => {
     >
       <div
         className={` 
-          flex-grow
+          lg:flex-grow
         `}
       >
         <img
