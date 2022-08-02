@@ -69,7 +69,7 @@ const $Plan: React.FC = (): JSX.Element => {
         bg-white
         overflow-auto
         flex
-        flex-col-reverse lg:flex-row
+        flex-col lg:flex-row
         justify-center
         h-full
         `}
