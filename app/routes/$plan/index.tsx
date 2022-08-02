@@ -85,8 +85,7 @@ const $Plan: React.FC = (): JSX.Element => {
           src={`/imgs/plans/${data.name}.jpg`}
         />
       </div>
-      <div>
-        <Form className={`flex flex-col gap-4 mx-2 h-screen px-4`} method={"post"}>
+        <Form className={`flex flex-col gap-4 mx-2 px-4`} method={"post"}>
           <input type={"hidden"} name={"plan"} value={data.name} />
           <div className="font-serif flex flex-col place-center mt-2 py-4 border border-black rounded-lg text-center">
             <h2 className="uppercase text-3xl font-bold flex-grow text-aqua">{`Plan ${data.name}`}</h2>
@@ -121,7 +120,6 @@ const $Plan: React.FC = (): JSX.Element => {
             }
           </div>
         </Form>
-      </div>
     </div>
   )
 }
