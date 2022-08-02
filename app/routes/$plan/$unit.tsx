@@ -81,7 +81,7 @@ const $Unit: React.FC = () => {
         `}
       >
         <img
-          className={`object-fill flex-grow aspect-w-3 aspect-h-2`}
+          className={`object-fill flex-grow aspect-w-3 aspect-h-2 lg:my-[5vh]`}
           alt={`Plan ${plan} Floorplan`}
           src={`/imgs/plans/${plan}.jpg`}
         />
