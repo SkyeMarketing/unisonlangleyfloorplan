@@ -69,18 +69,17 @@ const $Plan: React.FC = (): JSX.Element => {
         bg-white
         overflow-auto
         flex
-        flex-col-reverse lg:flex-row
+        flex-col
         justify-center
         h-full
         `}
     >
       <div
         className={` 
-          flex-grow
         `}
       >
         <img
-          className={`lg:aspect-w-3 lg:aspect-h-2 lg:my-[5vh]`}
+          className={``}
           alt={`Plan ${data.name} Floorplan`}
           src={`/imgs/plans/${data.name}.jpg`}
         />
@@ -105,8 +104,8 @@ const $Plan: React.FC = (): JSX.Element => {
           <div
             className={`
               md:w-full
-              flex md:flex lg:block
-              flex-col md:flex-row lg:flex-col
+              flex md:flex
+              flex-col md:flex-row
               gap-x-2
               gap-y-4
               md:flex-wrap
