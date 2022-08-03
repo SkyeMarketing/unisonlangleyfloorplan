@@ -105,7 +105,7 @@ const $Plan: React.FC = (): JSX.Element => {
             className={`
               md:w-full
               flex md:flex
-              flex-col md:flex-row
+              flex-col lg:flex-row
               gap-x-2
               gap-y-4
               md:flex-wrap
