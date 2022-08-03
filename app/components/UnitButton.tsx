@@ -8,18 +8,18 @@ const UnitButton: React.FC<UnitButtonProps> = ({number}): JSX.Element => {
   return (
     <button
       className={`
-      group
-      hover:bg-aqua
-            py-4
-              block
-              border-2
-              peer-hover:bg-aqua
-              peer-checked:border-aqua
-              rounded-lg
-              w-64
-              overflow-hidden
-              hover:border-black
-            `}
+        group
+        hover:bg-aqua
+        py-6
+        block
+        border-2
+        peer-hover:bg-aqua
+        peer-checked:border-aqua
+        rounded-lg
+        w-64 lg:w-80
+        overflow-hidden
+        hover:border-black
+      `}
       name={"unit"}
       value={number}
       type={"submit"}
