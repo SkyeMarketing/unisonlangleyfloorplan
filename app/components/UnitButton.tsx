@@ -10,14 +10,14 @@ const UnitButton: React.FC<UnitButtonProps> = ({number}): JSX.Element => {
       className={`
         group
         hover:bg-aqua
-        py-4 md:py-8 lg:py-16
+        py-4 md:py-8
         block
         border-2
         border-black
         peer-hover:bg-aqua
         peer-checked:border-aqua
         rounded-lg
-        w-64 md:80 lg:w-96
+        w-64 md:80
         overflow-hidden
         hover:border-black
       `}

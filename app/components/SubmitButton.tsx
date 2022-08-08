@@ -21,7 +21,7 @@ const SubmitButton: React.FC = () => {
       type={"submit"}
     >
       <div className="text-black group-hover:text-white font-serif">
-        <p className="text-center"><span className={`font-bold uppercase`}>Register</span></p>
+        <p className="text-center"><span className={`font-bold uppercase`}>Request Unit</span></p>
       </div>
     </button>
   )

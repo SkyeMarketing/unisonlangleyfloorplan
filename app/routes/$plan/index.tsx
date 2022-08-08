@@ -79,20 +79,20 @@ const $Plan: React.FC = (): JSX.Element => {
         `}
       >
         <img
-          className={``}
+          className={`w-full`}
           alt={`Plan ${data.name} Floorplan`}
           src={`/imgs/plans/${data.name}.jpg`}
         />
       </div>
         <Form className={`flex flex-col gap-4 mx-2 px-4`} method={"post"}>
           <input type={"hidden"} name={"plan"} value={data.name} />
-          <div className="font-serif flex flex-col place-center mt-2 py-4 border border-black rounded-lg text-center">
+          <div className="font-serif flex flex-col `todo:fix justify` place-center mt-2 py-4 border border-black rounded-lg text-center">
             <h2 className="uppercase text-3xl font-bold flex-grow text-aqua">{`Plan ${data.name}`}</h2>
             <Link className={`hover:text-aqua hover:underline hover:decoration-2 hover:decocation-aqua transition-all duration-300 ease-in-out`} to={`/?plan=${data.name}`}>Change floorplan</Link>
           </div>
 
           <div className="flex flex-col text-xl text-center">
-            <div className="flex flex-col font-serif uppercase">
+            <div className="flex flex-col font-serif upperc ase">
               <p>{`${data.beds} Bedroom`}</p>
               <p>{`${data.baths} Bath`}</p>
             </div>
@@ -106,7 +106,7 @@ const $Plan: React.FC = (): JSX.Element => {
               md:w-full
               flex md:flex
               flex-col lg:flex-row
-              gap-x-2
+              gap-x-2 md:gap-x-8
               gap-y-4
               md:flex-wrap
               overflow-auto
