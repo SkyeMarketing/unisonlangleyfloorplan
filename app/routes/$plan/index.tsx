@@ -92,8 +92,16 @@ const $Plan: React.FC = (): JSX.Element => {
           </div>
 
           <div className="flex flex-col text-xl text-center">
-            <div className="flex flex-col font-serif upperc ase">
-              <p>{`${data.beds} Bedroom`}</p>
+            <div className="flex flex-col font-serif upperc ase uppercase">
+              <p>
+                {
+                  typeof data.beds === "number"
+                    ? `${data.beds} ${data.beds > 1 ? "Bedrooms" : "Bedroom"}`
+                    : typeof data.beds === "string"
+                      ? data.beds
+                      : `${data.beds.pre ?? ""} ${data.beds.count} ${data.beds.post ?? ""}`
+                }
+              </p>
               <p>{`${data.baths} Bath`}</p>
             </div>
             <div className="flex flex-col font-serif uppercase">

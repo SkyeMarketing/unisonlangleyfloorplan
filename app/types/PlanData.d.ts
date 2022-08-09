@@ -4,7 +4,7 @@ declare type PlanData = {
       number
     | {
         pre?: string,
-        count?: number,
+        count: number,
         post?: string,
       }
     | string,
