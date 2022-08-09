@@ -1,6 +1,13 @@
 declare type PlanData = {
   baths: number,
-  beds: number,
+  beds:
+      number
+    | {
+        pre?: string,
+        count?: number,
+        post?: string,
+      }
+    | string,
   category: string,
   name: string,
   sqFt: number,

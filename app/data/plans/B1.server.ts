@@ -2,7 +2,10 @@ import type PlanData from "~/types/PlanData";
 
 const B1: PlanData = {
   baths: 2,
-  beds: 2,
+  beds: {
+    count: 2,
+    post: "Bedroom + Den",
+  },
   category: "B",
   name: "B1",
   sqFt: 863,
