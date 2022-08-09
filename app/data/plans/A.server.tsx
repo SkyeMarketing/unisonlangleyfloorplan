@@ -20,9 +20,9 @@ const A: PlanData = {
     403,
     404,
     405,
-    503,
-    504,
     505,
+    506,
+    507,
   ]
 }
 export default A

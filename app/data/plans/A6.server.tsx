@@ -11,7 +11,7 @@ const A6: PlanData = {
   sqFt: 646,
   unavailable: false,
   units: [
-    603
+    603,
   ]
 }
 export default A6
