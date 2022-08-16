@@ -27,7 +27,7 @@ const PlanButton: React.FC<PlanButtonProps> = ({plan}) => {
           border-b-1
           border-aqua
         `}
-        src={`/imgs/plans/${plan.name}.jpg`}
+        src={`/imgs/plans/${plan.name}.min.webp`}
       />
       <div
         className={`

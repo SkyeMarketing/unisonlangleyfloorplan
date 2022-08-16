@@ -81,7 +81,7 @@ const $Plan: React.FC = (): JSX.Element => {
         <img
           className={`w-full`}
           alt={`Plan ${data.name} Floorplan`}
-          src={`/imgs/plans/${data.name}.jpg`}
+          src={`/imgs/plans/${data.name}.webp`}
         />
       </div>
         <Form className={`flex flex-col gap-4 mx-2 px-4`} method={"post"}>
