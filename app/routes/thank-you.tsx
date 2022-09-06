@@ -13,11 +13,6 @@ export const links: LinksFunction = () => [
 const  ThankYou: React.FC = (): JSX.Element => {
   return (
     <>
-      <script async={true} dangerouslySetInnerHTML={{
-        __html: `
-        gtag('event', 'conversion', {'send_to': 'AW-323317353/M8AKCI_JwuICEOnclZoB'});
-        `
-      }}/>
       <main className={`flex place-items-center place-content-center w-screen h-screen bg-img bg-cover bg-no-repeat bg-blend-darken`}>
         <p className={`bg-black/50 bg-blend-hard-light font-serifCaps text-white text-3xl px-24 py-16 rounded-2xl`}>Thank you for registering</p>
       </main>
