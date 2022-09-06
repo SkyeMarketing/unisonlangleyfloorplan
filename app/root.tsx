@@ -5,7 +5,6 @@ import {Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData, useLocat
 import React, {useEffect} from "react";
 
 import styles from "~/styles/app.css"
-import * as gtag from "~/utils/gtags.client";
 
 export const links: LinksFunction = () => ([
   {rel: "stylesheet", href: styles},
@@ -34,19 +33,17 @@ type LoaderData = {
   gaTrackingId?: string,
 }
 
+type ENV = NodeJS.ProcessEnv & {
+  GA_TRACKING_ID: string,
+}
+
 export const loader: LoaderFunction = async () => {
-  return json<LoaderData>({gaTrackingId: process.env.GA_TRACKING_ID});
+  return json<LoaderData>({gaTrackingId: (process.env as ENV).GA_TRACKING_ID});
 };
 
 const App: React.FC = () => {
   const location = useLocation()
   const {gaTrackingId} = useLoaderData<LoaderData>()
-
-  useEffect(() => {
-    if (gaTrackingId?.length) {
-      gtag.pageview(location.pathname, gaTrackingId)
-    }
-  })
 
   return (
 
@@ -61,10 +58,12 @@ const App: React.FC = () => {
             <>
               <script
                 async
+                defer
                 src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}
               />
               <script
                 async
+                defer
                 id="gtag-init"
                 dangerouslySetInnerHTML={{
                   __html: `
@@ -80,6 +79,21 @@ const App: React.FC = () => {
               `
                 }}
               />
+
+              {
+                location.pathname !== '/thank-you'
+                  ? null
+                  : (
+                    <script
+                      async
+                      defer
+                      dangerouslySetInnerHTML={{
+                        __html: `
+                          gtag('event', 'conversion', {'send_to': 'AW-323317353/M8AKCI_JwuICEOnclZoB'});
+                        `
+                      }}/>
+                  )
+              }
             </>
           )
       }
