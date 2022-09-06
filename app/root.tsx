@@ -38,7 +38,7 @@ type ENV = NodeJS.ProcessEnv & {
 }
 
 export const loader: LoaderFunction = async () => {
-  return json<LoaderData>({gaTrackingId: (process.env as ENV).GA_TRACKING_ID});
+  return json<LoaderData>({gaTrackingId: 'AW-323317353'});
 };
 
 const App: React.FC = () => {
