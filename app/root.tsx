@@ -1,19 +1,14 @@
-import type {ErrorBoundaryComponent, LinksFunction, MetaFunction} from "@remix-run/node";
-import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "@remix-run/react";
+import type {ErrorBoundaryComponent, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import {json} from "@remix-run/node";
+import {Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData, useLocation,} from "@remix-run/react";
 
-import React from "react";
+import React, {useEffect} from "react";
 
 import styles from "~/styles/app.css"
+import * as gtag from "~/utils/gtags.client";
 
 export const links: LinksFunction = () => ([
-  { rel: "stylesheet", href: styles },
+  {rel: "stylesheet", href: styles},
   {
     rel: "preconnect",
     href: "https://fonts.googleapis.com",
@@ -35,21 +30,66 @@ export const meta: MetaFunction = () => ({
   viewport: "width=device-width,initial-scale=1",
 });
 
+type LoaderData = {
+  gaTrackingId?: string,
+}
+
+export const loader: LoaderFunction = async () => {
+  return json<LoaderData>({gaTrackingId: process.env.GA_TRACKING_ID});
+};
 
 const App: React.FC = () => {
-  return (
-    <html>
-      <head>
-        <Links />
-        <Meta />
-      </head>
+  const location = useLocation()
+  const {gaTrackingId} = useLoaderData<LoaderData>()
 
-      <body className={`bg-whiteh-screen`}>
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
-      </body>
+  useEffect(() => {
+    if (gaTrackingId?.length) {
+      gtag.pageview(location.pathname, gaTrackingId)
+    }
+  })
+
+  return (
+
+    <html>
+    <head>
+      <Links/>
+      <Meta/>
+      {
+        process.env.NODE_ENV === "development" && !gaTrackingId
+          ? null
+          : (
+            <>
+              <script
+                async
+                src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}
+              />
+              <script
+                async
+                id="gtag-init"
+                dangerouslySetInnerHTML={{
+                  __html: `
+                window.datalayer = window.datalayer || []
+                function gtag() {
+                  datalayer.push(arguments);
+                }
+                gtag('js', new Date())
+                gtag('config', '${gaTrackingId}', {
+                  page_path: '${location.pathname}'
+                }
+                )
+              `
+                }}
+              />
+            </>
+          )
+      }
+    </head>
+    <body>
+
+    <Outlet/>
+    <ScrollRestoration/>
+    <Scripts/>
+    </body>
     </html>
   )
 }

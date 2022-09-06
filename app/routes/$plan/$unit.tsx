@@ -36,7 +36,7 @@ export const action: ActionFunction = async ({request}): Promise<Response> => {
     })
   })
 
-  return redirect(`https://www.unisonlangley.ca/thank-you`);
+  return redirect(`/thank-you`);
 }
 
 export type LoaderData = {
