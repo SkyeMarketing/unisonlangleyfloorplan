@@ -82,7 +82,7 @@ const Route: React.FC = (): JSX.Element => {
         `}
         src={imgPath}
       />
-      <Form className={`flex flex-col place-center gap-4 mx-2 px-4 lg:w-96`} method={"post"}>
+      <Form className={`lg:h-screen overflow-auto flex flex-col place-center gap-4 mx-2 px-4 lg:w-96`} method={"post"}>
         <input type={"hidden"} name={"plan"} value={data.plan}/>
         <div className="font-serif flex flex-col mt-2 py-4 border border-black rounded-lg text-center">
           <h2 className="uppercase text-3xl font-bold flex-grow text-aqua">{`Plan ${data.plan.toUpperCase()}`}</h2>
@@ -107,6 +107,9 @@ const Route: React.FC = (): JSX.Element => {
           className={`
               flex
               flex-row lg:flex-col
+              justify-center lg:justify-start
+              items-start lg:items-center
+              flex-wrap lg:flex-nowrap
               gap-y-2
               gap-x-2
               overflow-x-auto lg:overflow-x-hidden
@@ -118,8 +121,8 @@ const Route: React.FC = (): JSX.Element => {
             `}
         >
           {
-            data.units.map((number: number, idx) => <div key={number}
-                                                         className={`${idx === 0 ? 'ml-[50%] lg:ml-0' : ''} my-2 snap-center snap-always scroll-ml-96`}>
+            data.units.map((number: number) => <div key={number}
+                                                         className={`my-2 snap-center snap-always scroll-ml-96`}>
               <UnitButton number={number}/></div>)
           }
         </div>
