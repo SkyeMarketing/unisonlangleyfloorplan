@@ -71,11 +71,10 @@ const $Unit: React.FC = () => {
         flex
         flex-col lg:flex-row
         justify-center
-        h-screen
         `}
     >
       <img
-        className={`overflow-hidden`}
+        className={`w-full`}
         alt={`Plan ${plan} Floorplan`}
         src={`/imgs/plans/${plan}.webp`}
       />
