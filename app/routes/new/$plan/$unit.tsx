@@ -75,7 +75,7 @@ const $Unit: React.FC = () => {
         `}
     >
       <img
-        className={`w-screen`}
+        className={`w-screen overflow-hidden`}
         alt={`Plan ${plan} Floorplan`}
         src={`/imgs/plans/${plan}.webp`}
       />

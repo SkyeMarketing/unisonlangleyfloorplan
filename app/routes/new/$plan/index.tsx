@@ -78,6 +78,7 @@ const Route: React.FC = (): JSX.Element => {
         alt={`Plan ${data.plan.toUpperCase()} Floorplan`}
         className={`
           w-screen
+          overflow-hidden
         `}
         src={imgPath}
       />
