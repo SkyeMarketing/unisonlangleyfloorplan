@@ -108,8 +108,10 @@ const Index: React.FC = (): JSX.Element => {
                           return (
                             <PlanButton
                               key={plan.name}
-                              plan={plan}
-                            />
+                              value={"a"}
+                            >
+                              <></>
+                            </PlanButton>
                           )
                         })
                     }

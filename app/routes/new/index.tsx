@@ -1,12 +1,12 @@
 import type {ActionFunction, LoaderFunction} from "@remix-run/node";
 import {json, redirect} from "@remix-run/node";
 import {Form, useLoaderData} from "@remix-run/react";
-import React from "react";
+import React, {useRef} from "react";
 import type {PlanData} from "~/config/Plans.server";
 import Plans from "~/config/Plans.server";
 import type Category from "~/config/Category.server";
-import PlanCard from "~/nomponents/PlanCard";
-import PlanButton from "~/nomponents/PlanButton";
+import PlanCard from "~/components/PlanCard";
+import PlanButton from "~/components/PlanButton";
 
 export const action: ActionFunction = async ({request}): Promise<Response> => {
   const formData = await request.formData()
@@ -42,7 +42,12 @@ export const loader: LoaderFunction = () => {
 const Route: React.FC = (): JSX.Element => {
   const data: Required<LoaderData> = useLoaderData()
 
-  const ref = React.useRef<HTMLDivElement>(null)
+  // const ref = React.useRef<HTMLDivElement>(null)
+  const refs = {
+    a: useRef<HTMLDivElement>(null),
+    b: useRef<HTMLDivElement>(null),
+    c: useRef<HTMLDivElement>(null),
+  }
 
   return (
     <div
@@ -83,6 +88,7 @@ const Route: React.FC = (): JSX.Element => {
                 >
                   <legend
                     className={`
+                      mx-auto
                       uppercase
                       font-serif
                       text-4xl md:text-7xl
@@ -105,7 +111,7 @@ const Route: React.FC = (): JSX.Element => {
                       snap-mandatory
                       snap-always
                     `}
-                    ref={ref}
+                    ref={refs[category]}
                   >
                     {
                       plans.map(({area, layout, plan}, index) => {
