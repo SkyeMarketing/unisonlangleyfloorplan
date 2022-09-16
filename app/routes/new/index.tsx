@@ -51,7 +51,7 @@ const Route: React.FC = (): JSX.Element => {
         bg-white
         mx-auto
         px-8
-        py-16
+        py-12
         flex
         justify-center
       `}
