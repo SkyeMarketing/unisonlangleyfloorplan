@@ -1,7 +1,7 @@
 import type {ActionFunction, LoaderFunction} from "@remix-run/node";
 import {json, redirect} from "@remix-run/node";
 import {Form, useLoaderData} from "@remix-run/react";
-import React, {useRef} from "react";
+import React, {useEffect, useRef} from "react";
 import type {PlanData} from "~/config/Plans.server";
 import Plans from "~/config/Plans.server";
 import type Category from "~/config/Category.server";
@@ -42,13 +42,6 @@ export const loader: LoaderFunction = () => {
 const Route: React.FC = (): JSX.Element => {
   const data: Required<LoaderData> = useLoaderData()
 
-  // const ref = React.useRef<HTMLDivElement>(null)
-  const refs = {
-    a: useRef<HTMLDivElement>(null),
-    b: useRef<HTMLDivElement>(null),
-    c: useRef<HTMLDivElement>(null),
-  }
-
   return (
     <div
       className={`
@@ -68,7 +61,7 @@ const Route: React.FC = (): JSX.Element => {
           flex
           flex-col
           flex-wrap
-          gap-y-4
+          gap-y-2
         `}
         method="post"
       >
@@ -79,7 +72,7 @@ const Route: React.FC = (): JSX.Element => {
               return (
                 <fieldset
                   className={`
-                    mt-8 md:mt-16
+                    mt-4 md:mt-8
                     mx-2
                     px-2
                     py-8
@@ -111,7 +104,6 @@ const Route: React.FC = (): JSX.Element => {
                       snap-mandatory
                       snap-always
                     `}
-                    ref={refs[category]}
                   >
                     {
                       plans.map(({area, layout, plan}, index) => {
