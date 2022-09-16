@@ -126,7 +126,7 @@ const $Unit: React.FC = () => {
               items-center
             `}
         >
-          <div className={`flex flex-col md:flex-row lg:flex-col gap-4`}>
+          <div className={`flex flex-col md:flex-row gap-4`}>
             <InputField
               label={"First Name"}
               name={`firstName`}
@@ -140,7 +140,7 @@ const $Unit: React.FC = () => {
               autoComplete={`family-name`}
             />
           </div>
-          <div className={`flex flex-col md:flex-row lg:flex-col gap-4`}>
+          <div className={`flex flex-col md:flex-row gap-4`}>
             <InputField
               label={"Email"}
               name={`email`}
