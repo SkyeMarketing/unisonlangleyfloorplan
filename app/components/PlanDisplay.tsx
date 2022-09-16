@@ -19,6 +19,7 @@ const PlanDisplay: React.FC<PlanDisplayProps> = ({plan}) => {
         border-aqua
         rounded-lg
         text-center
+        uppercase
       `}
       to={`/`}
     >

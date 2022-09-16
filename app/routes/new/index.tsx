@@ -1,7 +1,7 @@
 import type {ActionFunction, LoaderFunction} from "@remix-run/node";
 import {json, redirect} from "@remix-run/node";
 import {Form, useLoaderData} from "@remix-run/react";
-import React, {useLayoutEffect} from "react";
+import React from "react";
 import type {PlanData} from "~/config/Plans.server";
 import Plans from "~/config/Plans.server";
 import type Category from "~/config/Category.server";
@@ -14,7 +14,7 @@ export const action: ActionFunction = async ({request}): Promise<Response> => {
   const plan = formData.get("plan")
 
   if (Plans.find(p => p.plan === plan) !== undefined) {
-    return redirect(`/${plan}`)
+    return redirect(`/new/${plan}`)
   }
 
   return redirect("/new")
@@ -44,10 +44,6 @@ const Route: React.FC = (): JSX.Element => {
 
   const ref = React.useRef<HTMLDivElement>(null)
 
-  useLayoutEffect(() => {
-    ref.current?.scrollIntoView({behavior: "smooth"})
-  }, [ref])
-
   return (
     <div
       className={`
@@ -75,7 +71,6 @@ const Route: React.FC = (): JSX.Element => {
           Object.entries(data)
             .map(([cat, plans], categoryIdx) => {
               const category: Category = cat as Category;
-              console.log(categoryIdx)
               return (
                 <fieldset
                   className={`
@@ -115,9 +110,10 @@ const Route: React.FC = (): JSX.Element => {
                     {
                       plans.map(({area, layout, plan}, index) => {
                         return (
-                            <PlanButton key={plan} value={plan} className={`${index === 0 ? 'lg:ml-[50%]': ''} snap-center snap-always scroll-ml-96`}>
-                              <PlanCard area={area} layout={layout} plan={plan}/>
-                            </PlanButton>
+                          <PlanButton key={plan} value={plan}
+                                      className={`${index === 0 ? 'lg:ml-[50%]' : ''} snap-center snap-always scroll-ml-96`}>
+                            <PlanCard area={area} layout={layout} plan={plan}/>
+                          </PlanButton>
                         )
                       })
                     }

@@ -5,6 +5,7 @@ import type Plan from "~/config/Plan.server";
 
 export type PlanData = {
   area: Area,
+  baths: number,
   category: Category,
   layout: Layout,
   plan: Plan,
@@ -14,6 +15,7 @@ export type PlanData = {
 const Plans: PlanData[] = [
   {
     area: "464",
+    baths: 1,
     category: "a",
     layout: "studio",
     plan: "a",
@@ -37,6 +39,7 @@ const Plans: PlanData[] = [
   },
   {
     area: "797",
+    baths: 2,
     category: "a",
     layout: "doubleJr",
     plan: "a1",
@@ -51,6 +54,7 @@ const Plans: PlanData[] = [
   },
   {
     area: "646",
+    baths: 1,
     category: "a",
     layout: "single",
     plan: "a2",
@@ -70,6 +74,7 @@ const Plans: PlanData[] = [
   },
   {
     area: "582",
+    baths: 1,
     category: "a",
     layout: "singleDen",
     plan: "a3",
@@ -88,6 +93,7 @@ const Plans: PlanData[] = [
   },
   {
     area: "646",
+    baths: 1,
     category: "a",
     layout: "single",
     plan: "a4",
@@ -97,6 +103,7 @@ const Plans: PlanData[] = [
   },
   {
     area: "633",
+    baths: 1,
     category: "a",
     layout: "doubleJr",
     plan: "a5",
@@ -126,6 +133,7 @@ const Plans: PlanData[] = [
   },
   {
     area: "646",
+    baths: 1,
     category: "a",
     layout: "singleDen",
     plan: "a6",
@@ -135,6 +143,7 @@ const Plans: PlanData[] = [
   },
   {
     area: "859",
+    baths: 2,
     category: "b",
     layout: "double",
     plan: "b",
@@ -148,6 +157,7 @@ const Plans: PlanData[] = [
   },
   {
     area: "863",
+    baths: 2,
     category: "b",
     layout: "doubleDen",
     plan: "b1",
@@ -161,6 +171,7 @@ const Plans: PlanData[] = [
   },
   {
     area: "716",
+    baths: 1,
     category: "b",
     layout: "double",
     plan: "b2",
@@ -170,6 +181,7 @@ const Plans: PlanData[] = [
   },
   {
     area: "827",
+    baths: 2,
     category: "b",
     layout: "double",
     plan: "b3",
@@ -182,6 +194,7 @@ const Plans: PlanData[] = [
   },
   {
     area: "880",
+    baths: 2,
     category: "c",
     layout: "double",
     plan: "c",
@@ -194,6 +207,7 @@ const Plans: PlanData[] = [
   },
   {
     area: "1042",
+    baths: 2,
     category: "c",
     layout: "triple",
     plan: "c1",
@@ -203,6 +217,7 @@ const Plans: PlanData[] = [
   },
   {
     area: "1043",
+    baths: 2,
     category: "c",
     layout: "triple",
     plan: "c2",

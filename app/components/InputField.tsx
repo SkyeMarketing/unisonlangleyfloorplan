@@ -29,8 +29,8 @@ const InputField: React.FC<InputFieldProps> = ({...props}) => {
       </label>
       <input
         className={`
-          px-6
-          py-4
+          px-4
+          py-2
           border-2
           border-black
           focus:border-aqua
