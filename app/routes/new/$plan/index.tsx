@@ -113,7 +113,7 @@ const Route: React.FC = (): JSX.Element => {
               gap-y-2
               gap-x-2
               overflow-x-auto lg:overflow-x-hidden
-              overflow-y-hidden lg:overflow-y-auto
+              overflow-y-auto
               items-center
               snap-x lg:snap-y
               snap-mandatory

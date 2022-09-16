@@ -54,6 +54,7 @@ const Route: React.FC = (): JSX.Element => {
         py-12
         flex
         justify-center
+        overflow-hidden
       `}
     >
       <Form
@@ -97,7 +98,7 @@ const Route: React.FC = (): JSX.Element => {
                     className={`
                       flex
                       mx-auto
-                      overflow-x-auto 
+                      overflow-x-auto lg:overflow-x-visible
                       w-screen md:container
                       gap-x-4
                       snap-x
