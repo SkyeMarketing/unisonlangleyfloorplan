@@ -21,7 +21,7 @@ const PlanDisplay: React.FC<PlanDisplayProps> = ({plan}) => {
         text-center
         uppercase
       `}
-      to={`/`}
+      to={`/new`}
     >
       <span className={`uppercase`}>Plan</span> {plan}
     </Link>

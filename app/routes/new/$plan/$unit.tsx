@@ -69,20 +69,22 @@ const $Unit: React.FC = () => {
         mx-auto
         bg-white
         flex
-        flex-col lg:flex-row
+        flex-col
         justify-center
+        items-center
+        h-screen  
         `}
     >
       <img
-        className={`w-full`}
+        className={`w-full
+          overflow-hidden`}
         alt={`Plan ${plan} Floorplan`}
         src={`/imgs/plans/${plan}.webp`}
       />
 
       <Form
         className={`
-            px-2
-            py-4
+            overflow-auto flex flex-col mx-auto place-center gap-4 mx-2 px-4 lg:w-2/3
           `}
         method={"post"}
       >
