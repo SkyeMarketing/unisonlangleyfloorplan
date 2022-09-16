@@ -1,7 +1,7 @@
 import type {ActionFunction, LoaderFunction} from "@remix-run/node";
 import {json, redirect} from "@remix-run/node";
 import {Form, useLoaderData} from "@remix-run/react";
-import React, {useEffect, useRef} from "react";
+import React from "react";
 import type {PlanData} from "~/config/Plans.server";
 import Plans from "~/config/Plans.server";
 import type Category from "~/config/Category.server";
@@ -98,7 +98,7 @@ const Route: React.FC = (): JSX.Element => {
                     className={`
                       flex
                       mx-auto
-                      overflow-x-auto lg:overflow-x-visible
+                      overflow-x-auto
                       w-screen md:container
                       gap-x-4
                       snap-x
