@@ -70,7 +70,7 @@ const Route: React.FC = (): JSX.Element => {
         bg-white
         flex
         flex-col lg:flex-row
-        justify-center
+        lg:justify-center
         h-screen
       `}
     >

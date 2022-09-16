@@ -17,7 +17,7 @@ const UnitButton: React.FC<UnitButtonProps> = ({number}): JSX.Element => {
         peer-hover:bg-aqua
         peer-checked:border-aqua
         rounded-lg
-        w-64 md:w-56 lg:w-44
+        w-64 md:w-56 lg:w-32
         overflow-hidden
         hover:border-black
       `}
