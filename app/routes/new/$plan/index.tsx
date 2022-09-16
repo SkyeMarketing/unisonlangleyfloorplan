@@ -69,8 +69,9 @@ const Route: React.FC = (): JSX.Element => {
         mx-auto
         bg-white
         flex
-        flex-col lg:flex-row
-        lg:justify-center
+        flex-col
+        justify-center
+        items-center
         h-screen
       `}
     >
@@ -82,9 +83,9 @@ const Route: React.FC = (): JSX.Element => {
         `}
         src={imgPath}
       />
-      <Form className={`lg:h-screen overflow-auto flex flex-col place-center gap-4 mx-2 px-4 lg:w-96`} method={"post"}>
+      <Form className={`overflow-auto flex flex-col mx-auto place-center gap-4 mx-2 px-4 lg:w-2/3`} method={"post"}>
         <input type={"hidden"} name={"plan"} value={data.plan}/>
-        <div className="font-serif flex flex-col mt-2 py-4 border border-black rounded-lg text-center">
+        <div className="font-serif flex flex-col mx-auto mt-2 px-4 py-4 border border-black rounded-lg text-center">
           <h2 className="uppercase text-3xl font-bold flex-grow text-aqua">{`Plan ${data.plan.toUpperCase()}`}</h2>
           <Link
             className={`hover:text-aqua hover:underline hover:decoration-2 hover:decocation-aqua transition-all duration-300 ease-in-out`}
@@ -106,13 +107,13 @@ const Route: React.FC = (): JSX.Element => {
         <div
           className={`
               flex
-              flex-row lg:flex-col
+              flex-row
               justify-center lg:justify-start
               items-start lg:items-center
               flex-wrap lg:flex-nowrap
-              gap-y-2
-              gap-x-2
-              overflow-x-auto lg:overflow-x-hidden
+              gap-y-2 md:gap-y-4 lg:gap-y-2
+              gap-x-2 md:gap-x-4 lg:gap-x-2
+              overflow-x-auto
               overflow-y-auto
               items-center
               snap-x lg:snap-y
@@ -121,8 +122,8 @@ const Route: React.FC = (): JSX.Element => {
             `}
         >
           {
-            data.units.map((number: number) => <div key={number}
-                                                         className={`my-2 snap-center snap-always scroll-ml-96`}>
+            data.units.map((number: number, idx) => <div key={number}
+                                                         className={`${idx === 0 ? `lg:ml-[50%]` : ``} my-2 snap-center snap-always scroll-ml-96`}>
               <UnitButton number={number}/></div>)
           }
         </div>

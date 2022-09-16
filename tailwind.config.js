@@ -21,6 +21,9 @@ module.exports = {
                 serifCaps: ["Cinzel", "serif"],
                 serif: ["Frank Ruhl Libre", "serif"],
             },
+            aspectRatio: {
+
+            }
         },
     },
     plugins: [
