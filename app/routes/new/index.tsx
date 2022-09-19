@@ -46,8 +46,6 @@ const Route: React.FC = (): JSX.Element => {
     <div
       className={`
         container
-        border-x
-        border-aqua/25
         bg-white
         mx-auto
         px-8
@@ -104,13 +102,15 @@ const Route: React.FC = (): JSX.Element => {
                       snap-x
                       snap-mandatory
                       snap-always
+                      ${categoryIdx !== 0 ? "lg:justify-center" : ""}
+                      pb-2
                     `}
                   >
                     {
                       plans.map(({area, layout, plan}, index) => {
                         return (
                           <PlanButton key={plan} value={plan}
-                                      className={`${index === 0 ? 'lg:ml-[50%]' : ''} snap-center snap-always scroll-ml-96`}>
+                                      className={`snap-center snap-always scroll-ml-96`}>
                             <PlanCard area={area} layout={layout} plan={plan}/>
                           </PlanButton>
                         )

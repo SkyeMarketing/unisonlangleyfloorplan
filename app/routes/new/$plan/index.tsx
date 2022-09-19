@@ -72,7 +72,6 @@ const Route: React.FC = (): JSX.Element => {
         flex-col
         justify-center
         items-center
-        h-screen
       `}
     >
       <img
@@ -114,7 +113,7 @@ const Route: React.FC = (): JSX.Element => {
               gap-y-2 md:gap-y-4 lg:gap-y-2
               gap-x-2 md:gap-x-4 lg:gap-x-2
               overflow-x-auto
-              overflow-y-auto
+              overflow-y-auto lg:overflow-y-hidden
               items-center
               snap-x lg:snap-y
               snap-mandatory
@@ -123,7 +122,7 @@ const Route: React.FC = (): JSX.Element => {
         >
           {
             data.units.map((number: number, idx) => <div key={number}
-                                                         className={`${idx === 0 ? `lg:ml-[50%]` : ``} my-2 snap-center snap-always scroll-ml-96`}>
+                                                         className={` my-2 snap-center snap-always scroll-ml-96`}>
               <UnitButton number={number}/></div>)
           }
         </div>
