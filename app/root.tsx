@@ -109,10 +109,11 @@ const App: React.FC = () => {
 }
 export default App;
 
+/*
 export const CatchBoundary: React.FC = () => {
   return (<></>)
 }
 
 export const ErrorBoundary: ErrorBoundaryComponent = ({error}) => {
   return (<></>)
-}
+}*/
