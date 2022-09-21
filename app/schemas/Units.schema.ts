@@ -1,5 +1,5 @@
 import {z} from "zod";
-import UnitSchema from "~/schemas/Unit.schema.server";
+import UnitSchema from "~/schemas/Unit.schema";
 
 const UnitsSchema = z.array(UnitSchema, {
   description: "Available units for the plan",

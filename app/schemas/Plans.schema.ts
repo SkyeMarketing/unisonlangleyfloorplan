@@ -1,5 +1,5 @@
 import {z} from "zod";
-import {PlanSchema} from "~/schemas/Plan.schema.server";
+import PlanSchema from "~/schemas/Plan.schema";
 
 const PlansSchema = z.array(PlanSchema, {
   description: "The plans for the project",

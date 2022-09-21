@@ -12,5 +12,4 @@ const BathsSchema = z
   .max(3, {
     message: "The number of bathrooms must be at most 3",
   })
-  .transform((baths) => `${baths} Bath${baths > 1 ? 's' : ''}`);
 export default BathsSchema;

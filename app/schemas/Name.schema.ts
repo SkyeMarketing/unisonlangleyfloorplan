@@ -6,5 +6,4 @@ const NameSchema = z
     invalid_type_error: "The name must be a string",
     required_error: "The name is required",
   })
-  .transform((name) => `Plan ${name}`);
 export default NameSchema;

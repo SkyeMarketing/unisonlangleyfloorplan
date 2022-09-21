@@ -19,5 +19,4 @@ const AreaSchema = z
     invalid_type_error: "The area must be a string",
     required_error: "Area is required",
   })
-  .transform((area) => `${area} Sq.Ft.`);
 export default AreaSchema;
