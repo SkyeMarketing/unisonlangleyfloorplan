@@ -1,6 +1,6 @@
 import type {ActionFunction, LoaderFunction} from "@remix-run/node";
 import {redirect} from "@remix-run/node";
-import Plans from "~/data/plans/Plans.server";
+import Plans from "~/data/o/plans/Plans.server";
 import {Form, useLoaderData} from "@remix-run/react";
 import type PlanData$Client from "~/types/PlanData$Client";
 import type PlanData from "~/types/PlanData";
