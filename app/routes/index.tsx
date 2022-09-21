@@ -4,7 +4,7 @@ import Plans from "~/data/plans/Plans.server";
 import {Form, useLoaderData} from "@remix-run/react";
 import type PlanData$Client from "~/types/PlanData$Client";
 import type PlanData from "~/types/PlanData";
-import PlanButton from "~/components/PlanButton";
+import PlanButton from "~/components/o/PlanButton";
 import React from "react";
 
 export const action: ActionFunction = async ({request}): Promise<Response> => {

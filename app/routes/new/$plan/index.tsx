@@ -4,7 +4,7 @@ import type {ActionFunction, LoaderFunction} from "@remix-run/node";
 import {redirect} from "@remix-run/node";
 import type {PlanData} from "~/config/Plans.server";
 import Plans from "~/config/Plans.server";
-import UnitButton from "~/components/UnitButton";
+import UnitButton from "~/components/o/UnitButton";
 import {layouts} from "~/config/Layout.server";
 import {areas} from "~/config/Area.server";
 

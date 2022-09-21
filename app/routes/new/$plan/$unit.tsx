@@ -2,11 +2,11 @@ import type {ActionFunction, LoaderFunction} from "@remix-run/node";
 import {redirect} from "@remix-run/node";
 import {Form, useLoaderData} from "@remix-run/react";
 import React from "react";
-import SubmitButton from "~/components/SubmitButton";
-import PlanDisplay from "~/components/PlanDisplay";
-import UnitDisplay from "~/components/UnitDisplay";
-import CheckboxField from "~/components/CheckboxField";
-import InputField from "~/components/InputField";
+import SubmitButton from "~/components/o/SubmitButton";
+import PlanDisplay from "~/components/o/PlanDisplay";
+import UnitDisplay from "~/components/o/UnitDisplay";
+import CheckboxField from "~/components/o/CheckboxField";
+import InputField from "~/components/o/InputField";
 
 interface ProcessExt extends NodeJS.ProcessEnv {
   ZAPIER_WEBHOOK: string

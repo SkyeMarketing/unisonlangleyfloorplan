@@ -5,8 +5,8 @@ import React from "react";
 import type {PlanData} from "~/config/Plans.server";
 import Plans from "~/config/Plans.server";
 import type Category from "~/config/Category.server";
-import PlanCard from "~/components/PlanCard";
-import PlanButton from "~/components/PlanButton";
+import PlanCard from "~/components/o/PlanCard";
+import PlanButton from "~/components/o/PlanButton";
 
 export const action: ActionFunction = async ({request}): Promise<Response> => {
   const formData = await request.formData()

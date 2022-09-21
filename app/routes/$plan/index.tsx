@@ -5,7 +5,7 @@ import type UnitData$Client from "~/types/UnitData$Client";
 import {redirect} from "@remix-run/node";
 import Plans from "~/data/plans/Plans.server";
 import type PlanData from "~/types/PlanData";
-import UnitButton from "~/components/UnitButton";
+import UnitButton from "~/components/o/UnitButton";
 
 export const action: ActionFunction = async ({request}): Promise<Response> => {
   const formData = await request.formData()
