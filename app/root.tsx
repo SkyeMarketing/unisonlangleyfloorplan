@@ -98,7 +98,11 @@ const App: React.FC = () => {
           )
       }
     </head>
-    <body>
+    <body
+      className={`
+        h-[1581px] md:h-[1873px] lg:h-[1924px]
+      `}
+    >
 
     <Outlet/>
     <ScrollRestoration/>
