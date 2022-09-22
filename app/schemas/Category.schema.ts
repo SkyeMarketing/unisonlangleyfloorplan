@@ -12,3 +12,4 @@ const CategorySchema = z
     }
   );
 export default CategorySchema;
+export type Category = z.infer<typeof CategorySchema>;

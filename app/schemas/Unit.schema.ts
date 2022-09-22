@@ -5,3 +5,4 @@ const UnitSchema = z.number({
   invalid_type_error: "The unit must be a number",
 });
 export default UnitSchema;
+export type Unit = z.infer<typeof UnitSchema>;

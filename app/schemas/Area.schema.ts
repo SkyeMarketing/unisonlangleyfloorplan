@@ -20,3 +20,5 @@ const AreaSchema = z
     required_error: "Area is required",
   })
 export default AreaSchema;
+
+export type Area = z.infer<typeof AreaSchema>

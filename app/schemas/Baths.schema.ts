@@ -13,3 +13,4 @@ const BathsSchema = z
     message: "The number of bathrooms must be at most 3",
   })
 export default BathsSchema;
+export type Baths = z.infer<typeof BathsSchema>;

@@ -14,3 +14,4 @@ const LayoutSchema = z.enum([
   required_error: "The layout is required",
 })
 export default LayoutSchema;
+export type Layout = z.infer<typeof LayoutSchema>;

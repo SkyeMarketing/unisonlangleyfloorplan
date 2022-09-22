@@ -19,3 +19,4 @@ const PlanSchema = z.object({
   units: UnitsSchema,
 });
 export default PlanSchema;
+export type Plan = z.infer<typeof PlanSchema>;

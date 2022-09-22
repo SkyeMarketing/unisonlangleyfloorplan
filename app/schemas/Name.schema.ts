@@ -7,3 +7,4 @@ const NameSchema = z
     required_error: "The name is required",
   })
 export default NameSchema;
+export type Name = z.infer<typeof NameSchema>;

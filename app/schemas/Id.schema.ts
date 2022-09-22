@@ -7,3 +7,4 @@ const IdSchema = z
     required_error: "The id is required",
   });
 export default IdSchema;
+export type Id = z.infer<typeof IdSchema>;

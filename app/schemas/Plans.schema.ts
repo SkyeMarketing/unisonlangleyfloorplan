@@ -7,3 +7,4 @@ const PlansSchema = z.array(PlanSchema, {
   required_error: "The plans are required",
 });
 export default PlansSchema;
+export type Plans = z.infer<typeof PlansSchema>;

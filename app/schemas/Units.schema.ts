@@ -7,3 +7,4 @@ const UnitsSchema = z.array(UnitSchema, {
   required_error: "The units are required",
 });
 export default UnitsSchema;
+export type Units = z.infer<typeof UnitsSchema>;

@@ -8,3 +8,4 @@ const EnabledSchema = z
   .optional()
   .default(true);
 export default EnabledSchema;
+export type Enabled = z.infer<typeof EnabledSchema>;
