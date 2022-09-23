@@ -46,7 +46,7 @@ export default ({area, id, layout, name}: z.infer<typeof CategoryPlanSchema>) =>
             transition-all
             ease-in-out
             duration-300
-            sm:w-41
+            sm:w-44
             py-2 sm:py-auto
             sm:px-4
           `}
