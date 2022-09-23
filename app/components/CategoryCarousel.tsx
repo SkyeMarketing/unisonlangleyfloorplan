@@ -1,7 +1,6 @@
 import {z} from "zod";
 import AreaSchema from "~/schemas/Area.schema";
 import NameSchema from "~/schemas/Name.schema";
-import IdSchema from "~/schemas/Id.schema";
 import LayoutSchema from "~/schemas/Layout.schema";
 import {useEffect, useRef, useState} from "react";
 import CategoryPlan from "~/components/CategoryPlan";
@@ -9,7 +8,6 @@ import CategoryPlan from "~/components/CategoryPlan";
 const CategoryCarouselPropsSchema = z.object({
   plans: z.array(z.object({
     area: AreaSchema,
-    id: IdSchema,
     layout: LayoutSchema,
     name: NameSchema,
   })),

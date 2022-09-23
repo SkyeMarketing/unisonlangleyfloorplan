@@ -1,14 +1,13 @@
+import type {Plans} from "~/schemas/Plans.schema";
 import PlansSchema from "~/schemas/Plans.schema";
-import type {z} from "zod";
 
-const Plans: z.infer<typeof PlansSchema> = PlansSchema
+const PLANS: Plans = PlansSchema
   .parse([
     {
       area: "464",
       baths: 1,
       category: "A",
       enabled: true,
-      id: "a",
       layout: "studio",
       name: "A",
       units: [
@@ -34,7 +33,6 @@ const Plans: z.infer<typeof PlansSchema> = PlansSchema
       baths: 2,
       category: "A",
       enabled: true,
-      id: "a1",
       layout: "jr-two-bedroom",
       name: "A1",
       units: [
@@ -51,7 +49,6 @@ const Plans: z.infer<typeof PlansSchema> = PlansSchema
       baths: 1,
       category: "A",
       enabled: true,
-      id: "a2",
       layout: "one-bedroom",
       name: "A2",
       units: [
@@ -73,7 +70,6 @@ const Plans: z.infer<typeof PlansSchema> = PlansSchema
       baths: 1,
       category: "A",
       enabled: true,
-      id: "a3",
       layout: "one-bedroom-plus-den",
       name: "A3",
       units: [
@@ -94,7 +90,6 @@ const Plans: z.infer<typeof PlansSchema> = PlansSchema
       baths: 1,
       category: "A",
       enabled: true,
-      id: "a4",
       layout: "one-bedroom",
       name: "A4",
       units: [
@@ -106,7 +101,6 @@ const Plans: z.infer<typeof PlansSchema> = PlansSchema
       baths: 1,
       category: "A",
       enabled: true,
-      id: "a5",
       layout: "jr-two-bedroom",
       name: "A5",
       units: [
@@ -138,7 +132,6 @@ const Plans: z.infer<typeof PlansSchema> = PlansSchema
       baths: 1,
       category: "A",
       enabled: true,
-      id: "a6",
       layout: "one-bedroom-plus-den",
       name: "A6",
       units: [
@@ -150,7 +143,6 @@ const Plans: z.infer<typeof PlansSchema> = PlansSchema
       baths: 2,
       category: "B",
       enabled: true,
-      id: "b",
       layout: "two-bedroom",
       name: "B",
       units: [
@@ -166,7 +158,6 @@ const Plans: z.infer<typeof PlansSchema> = PlansSchema
       baths: 2,
       category: "B",
       enabled: true,
-      id: "b1",
       layout: "two-bedroom-plus-den",
       name: "B1",
       units: [
@@ -182,7 +173,6 @@ const Plans: z.infer<typeof PlansSchema> = PlansSchema
       baths: 1,
       category: "B",
       enabled: true,
-      id: "b2",
       layout: "two-bedroom",
       name: "B2",
       units: [
@@ -194,7 +184,6 @@ const Plans: z.infer<typeof PlansSchema> = PlansSchema
       baths: 2,
       category: "B",
       enabled: true,
-      id: "b3",
       layout: "two-bedroom",
       name: "B3",
       units: [
@@ -209,7 +198,6 @@ const Plans: z.infer<typeof PlansSchema> = PlansSchema
       baths: 2,
       category: "C",
       enabled: true,
-      id: "c",
       layout: "two-bedroom",
       name: "C",
       units: [
@@ -224,7 +212,6 @@ const Plans: z.infer<typeof PlansSchema> = PlansSchema
       baths: 2,
       category: "C",
       enabled: true,
-      id: "c1",
       layout: "three-bedroom",
       name: "C1",
       units: [
@@ -236,7 +223,6 @@ const Plans: z.infer<typeof PlansSchema> = PlansSchema
       baths: 2,
       category: "C",
       enabled: true,
-      id: "c2",
       layout: "three-bedroom",
       name: "C2",
       units: [
@@ -245,4 +231,4 @@ const Plans: z.infer<typeof PlansSchema> = PlansSchema
       ],
     }
   ]);
-export default Plans;
+export default PLANS;

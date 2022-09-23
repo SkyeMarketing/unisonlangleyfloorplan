@@ -2,20 +2,18 @@ import {z} from "zod";
 import AreaSchema, {areaTransformer} from "~/schemas/Area.schema";
 import NameSchema from "~/schemas/Name.schema";
 import LayoutSchema, {layoutTransformer} from "~/schemas/Layout.schema";
-import IdSchema from "~/schemas/Id.schema";
 
 const CategoryPlanSchema = z.object({
   area: AreaSchema,
-  id: IdSchema,
   layout: LayoutSchema,
   name: NameSchema,
 })
-export default ({area, id, layout, name}: z.infer<typeof CategoryPlanSchema>) => {
+export default ({area, layout, name}: z.infer<typeof CategoryPlanSchema>) => {
   return (
     <button
       name={`plan`}
       type={`submit`}
-      value={id}
+      value={name}
     >
       <div
         className={`
