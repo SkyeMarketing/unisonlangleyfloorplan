@@ -2,6 +2,7 @@ import {z} from "zod";
 import AreaSchema, {areaTransformer} from "~/schemas/Area.schema";
 import NameSchema from "~/schemas/Name.schema";
 import LayoutSchema, {layoutTransformer} from "~/schemas/Layout.schema";
+import {Link} from "@remix-run/react";
 
 const CategoryPlanSchema = z.object({
   area: AreaSchema,
@@ -9,11 +10,10 @@ const CategoryPlanSchema = z.object({
   name: NameSchema,
 })
 export default ({area, layout, name}: z.infer<typeof CategoryPlanSchema>) => {
+  console.log(name)
   return (
-    <button
-      name={`plan`}
-      type={`submit`}
-      value={name}
+    <Link
+      to={`/m/${name}`}
     >
       <div
         className={`
@@ -78,6 +78,6 @@ export default ({area, layout, name}: z.infer<typeof CategoryPlanSchema>) => {
           </ul>
         </div>
       </div>
-    </button>
+    </Link>
   )
 }

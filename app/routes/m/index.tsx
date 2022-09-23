@@ -1,14 +1,12 @@
-import PlanSchema, {Plan} from "~/schemas/Plan.schema";
 import CategorySchema from "~/schemas/Category.schema";
 import {z} from "zod";
 import {Form, useLoaderData} from "@remix-run/react";
 import CategoryCarousel from "~/components/CategoryCarousel";
 import AreaSchema from "~/schemas/Area.schema";
-import IdSchema from "~/schemas/Id.schema";
 import LayoutSchema from "~/schemas/Layout.schema";
 import NameSchema from "~/schemas/Name.schema";
 import type {ActionFunction, LoaderFunction} from "@remix-run/node";
-import {json, redirect} from "@remix-run/node";
+import {redirect} from "@remix-run/node";
 import PLANS from "~/data/Plans.server";
 
 const FormDataSchema = z.object({
@@ -57,23 +55,22 @@ export default () => {
         bg-white
       `}
     >
-      <Form
+      <section
         className={`
           flex
           flex-col
           gap-y-2
         `}
-        method="post"
       >
         {
           Object.entries(data).map(([category, plans]) => (
-            <fieldset
+            <div
               className={`
                 py-4 sm:py-6
               `}
               key={category}
             >
-              <legend
+              <h1
                 className={`
                   mx-auto
                   uppercase
@@ -86,13 +83,13 @@ export default () => {
                 `}
               >
                 {category}
-              </legend>
+              </h1>
 
               <CategoryCarousel plans={plans} />
-            </fieldset>
+            </div>
           ))
         }
-      </Form>
+      </section>
     </main>
   )
 }
