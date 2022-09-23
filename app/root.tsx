@@ -100,7 +100,7 @@ const App: React.FC = () => {
     </head>
     <body
       className={`
-        h-[1581px] md:h-[1873px] lg:h-[1924px]
+        h-[1337.73px] sm:h-[1168px] md:h-[1360px]
       `}
     >
 
