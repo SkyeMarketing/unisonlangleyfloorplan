@@ -40,8 +40,8 @@ export default () => {
     <main
       className={`
         container
-        px-8
-        py-12
+        px-3
+        py-6
         mx-auto
         bg-white
       `}
@@ -58,7 +58,7 @@ export default () => {
           Object.entries(data).map(([category, plans]) => (
             <fieldset
               className={`
-                mt-4 md:mt-8
+                py-4 sm:py-6
               `}
               key={category}
             >
@@ -71,6 +71,7 @@ export default () => {
                   font-bold
                   text-center
                   text-aqua
+                  py-4 md:py-8
                 `}
               >
                 {category}

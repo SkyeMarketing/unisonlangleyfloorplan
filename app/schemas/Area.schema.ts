@@ -22,3 +22,5 @@ const AreaSchema = z
 export default AreaSchema;
 
 export type Area = z.infer<typeof AreaSchema>
+
+export const areaTransformer = (area: Area) => `${area} Sq.Ft.`

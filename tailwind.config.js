@@ -10,6 +10,9 @@ module.exports = {
     },
     theme: {
         extend: {
+            width: {
+                "41": "10.25rem",
+            },
             colors: {
                 white: "hsl(0,0%,100%)",
                 grey: "hsl(0,0%,81%)",
