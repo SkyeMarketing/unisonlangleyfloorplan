@@ -1,127 +1,86 @@
-import type {ActionFunction, LoaderFunction} from "@remix-run/node";
-import {redirect} from "@remix-run/node";
-import Plans from "~/data/o/plans/Plans.server";
-import {Form, useLoaderData} from "@remix-run/react";
-import type PlanData$Client from "~/types/PlanData$Client";
-import type PlanData from "~/types/PlanData";
-import PlanButton from "~/components/o/PlanButton";
-import React from "react";
+import CategorySchema from "~/schemas/Category.schema";
+import {z} from "zod";
+import {useLoaderData} from "@remix-run/react";
+import CategoryCarousel from "~/components/CategoryCarousel";
+import AreaSchema from "~/schemas/Area.schema";
+import LayoutSchema from "~/schemas/Layout.schema";
+import NameSchema from "~/schemas/Name.schema";
+import type {LoaderFunction} from "@remix-run/node";
+import PLANS from "~/data/Plans.server";
 
-export const action: ActionFunction = async ({request}): Promise<Response> => {
-  const formData = await request.formData()
+const LoaderDataSchema = z
+  .record(CategorySchema, z
+    .array(z.object({
+      area: AreaSchema,
+      layout: LayoutSchema,
+      name: NameSchema,
+    }))
+  );
+type LoaderData = z.infer<typeof LoaderDataSchema>;
 
-  const plan = formData.get("plan")
+export const loader: LoaderFunction = () => {
+  const data: LoaderData = {};
 
-  if (Plans.find(p => p.name === plan) !== undefined) {
-    return redirect(`/${plan}`)
-  }
-
-  return redirect("/")
-}
-
-export const loader: LoaderFunction = (): PlanData$Client => {
-  const data: PlanData$Client = {}
-
-  Plans
-    .filter((plan => !plan.unavailable))
-    .forEach(({baths, beds, name, sqFt, category}: PlanData) => {
-      let cat = data[category]
-
-      if (cat === undefined) {
-        cat = [{baths, beds, name, sqFt}]
+  PLANS
+    .filter(({enabled}) => enabled)
+    .map(({baths, enabled, units, ...plan}) => plan)
+    .forEach(({category, ...plan}) => {
+      console.log(category)
+      if (data[category]) {
+        data[category]?.push(plan);
       } else {
-        cat.push({baths, beds, name, sqFt})
+        data[category] = [plan];
       }
-
-      data[category] = cat
-    })
-
-  return data
+    });
+  return data;
 }
-
-const Index: React.FC = (): JSX.Element => {
-  const data: PlanData$Client = useLoaderData()
-
+export default () => {
+  const data: LoaderData = useLoaderData();
   return (
-
-    <div
+    <main
       className={`
-          container
-          bg-white
-          mx-auto
-          px-8
-          py-16
-          flex
-          justify-center
-        `}
+        container
+        px-3
+        py-6
+        mx-auto
+        bg-white
+      `}
     >
-      <Form
+      <section
         className={`
-            flex
-            flex-col
-            flex-wrap
-            gap-y-4
-          `}
-        method={"post"}
+          flex
+          flex-col
+          gap-y-2
+        `}
       >
         {
-          Object
-            .entries(data)
-            .map(([category, plans]) => {
-              return (
-                <fieldset
-                  className={`
-                      mt-16
-                      mx-2 
-                      px-2 
-                      py-8
-                      
-                    `}
-                  key={category}
-                >
-                  <legend
-                    className={`
-                        font-serif
-                        text-7xl
-                        font-bold
-                        text-center
-                        text-aqua
-                      `}
-                  >
-                    {category}
-                  </legend>
+          Object.entries(data).map(([category, plans]) => (
+            <div
+              className={`
+                py-4 sm:py-6
+              `}
+              key={category}
+            >
+              <h1
+                className={`
+                  mx-auto
+                  uppercase
+                  font-serif
+                  text-4xl md:text-7xl
+                  font-bold
+                  text-center
+                  text-aqua
+                  py-4 md:py-8
+                `}
+              >
+                {category}
+              </h1>
 
-                  <div
-                    className={`
-                        flex
-                        flex-row
-                        flex-wrap
-                        gap-4
-                        justify-center
-                        items-center
-                        my-8
-                      `}
-                  >
-                    {
-                      plans
-                        .map((plan) => {
-                          return (
-                            <PlanButton
-                              key={plan.name}
-                              value={"a"}
-                            >
-                              <></>
-                            </PlanButton>
-                          )
-                        })
-                    }
-                  </div>
-                </fieldset>
-              )
-            })
+              <CategoryCarousel plans={plans} />
+            </div>
+          ))
         }
-      </Form>
-    </div>
-  );
+      </section>
+    </main>
+  )
 }
-export default Index
