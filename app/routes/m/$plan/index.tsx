@@ -48,7 +48,6 @@ export default () => {
         flex-col
         mx-auto
         lg:space-y-8
-        max-h-[1337.73px]
       `}
     >
       <img
@@ -151,7 +150,6 @@ export default () => {
             gap-4
             overflow-x-auto
             py-2
-            overflow-y-auto
           `}
         >
           {data.units.map((unit) => (
