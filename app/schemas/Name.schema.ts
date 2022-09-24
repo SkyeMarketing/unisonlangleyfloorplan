@@ -8,3 +8,5 @@ const NameSchema = z
   })
 export default NameSchema;
 export type Name = z.infer<typeof NameSchema>;
+
+export const nameTransformer = (name: Name) => `Plan ${name}`

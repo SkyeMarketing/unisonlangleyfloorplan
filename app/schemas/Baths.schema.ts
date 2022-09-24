@@ -14,3 +14,5 @@ const BathsSchema = z
   })
 export default BathsSchema;
 export type Baths = z.infer<typeof BathsSchema>;
+
+export const bathsTransformer = (baths: Baths) => `${baths} Bath${baths > 1 ? "s" : ""}`

@@ -1,22 +1,12 @@
 import CategorySchema from "~/schemas/Category.schema";
 import {z} from "zod";
-import {Form, useLoaderData} from "@remix-run/react";
+import {useLoaderData} from "@remix-run/react";
 import CategoryCarousel from "~/components/CategoryCarousel";
 import AreaSchema from "~/schemas/Area.schema";
 import LayoutSchema from "~/schemas/Layout.schema";
 import NameSchema from "~/schemas/Name.schema";
-import type {ActionFunction, LoaderFunction} from "@remix-run/node";
-import {redirect} from "@remix-run/node";
+import type {LoaderFunction} from "@remix-run/node";
 import PLANS from "~/data/Plans.server";
-
-const FormDataSchema = z.object({
-  plan: z.string(),
-})
-type FormData = z.infer<typeof FormDataSchema>
-
-export const action: ActionFunction = async ({request}) => {
-  return redirect(`/m/t?plan=${FormDataSchema.parse(await request.formData()).plan}`)
-}
 
 const LoaderDataSchema = z
   .record(CategorySchema, z
@@ -30,6 +20,7 @@ type LoaderData = z.infer<typeof LoaderDataSchema>;
 
 export const loader: LoaderFunction = () => {
   const data: LoaderData = {};
+
   PLANS
     .filter(({enabled}) => enabled)
     .map(({baths, enabled, units, ...plan}) => plan)
