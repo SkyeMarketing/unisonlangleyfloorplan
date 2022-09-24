@@ -25,7 +25,6 @@ export const loader: LoaderFunction = () => {
     .filter(({enabled}) => enabled)
     .map(({baths, enabled, units, ...plan}) => plan)
     .forEach(({category, ...plan}) => {
-      console.log(category)
       if (data[category]) {
         data[category]?.push(plan);
       } else {

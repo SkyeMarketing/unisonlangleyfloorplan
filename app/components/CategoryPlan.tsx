@@ -13,7 +13,7 @@ export default ({area, layout, name}: z.infer<typeof CategoryPlanSchema>) => {
   console.log(name)
   return (
     <Link
-      to={`/m/${name}`}
+      to={`/${name}`}
     >
       <div
         className={`
