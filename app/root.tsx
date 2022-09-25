@@ -99,10 +99,9 @@ const App: React.FC = () => {
       }
     </head>
     <body>
-
-    <Outlet/>
-    <ScrollRestoration/>
-    <Scripts/>
+      <Outlet/>
+      <ScrollRestoration/>
+      <Scripts/>
     </body>
     </html>
   )

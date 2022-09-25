@@ -10,7 +10,6 @@ const CategoryPlanSchema = z.object({
   name: NameSchema,
 })
 export default ({area, layout, name}: z.infer<typeof CategoryPlanSchema>) => {
-  console.log(name)
   return (
     <Link
       to={`/${name}`}
