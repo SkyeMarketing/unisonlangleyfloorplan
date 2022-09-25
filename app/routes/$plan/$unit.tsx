@@ -218,8 +218,9 @@ export default () => {
         `}
     >
       <img
-        className={`w-full
-          overflow-hidden`}
+        className={`
+          overflow-hidden
+        `}
         alt={`Plan ${plan} Floorplan`}
         src={`/imgs/plans/${plan}.webp`}
       />
@@ -252,7 +253,7 @@ export default () => {
               my-2
               h-px
               mx-auto
-              w-full
+              w-2/3
               border-2
               border-aqua
               rounded-full
