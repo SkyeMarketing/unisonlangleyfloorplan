@@ -52,6 +52,7 @@ export default () => {
         flex-col
         mx-auto
         lg:space-y-8
+        fixed
       `}
     >
       <img

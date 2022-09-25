@@ -99,7 +99,7 @@ const App: React.FC = () => {
       }
     </head>
     <body
-      className={`h-screen max-h-screen overflow-hidden`}
+      className={`overflow-hidden relative`}
     >
       <Outlet/>
       <ScrollRestoration/>
