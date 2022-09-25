@@ -142,7 +142,7 @@ export default () => {
 
         <div
           className={`
-            hidden md:block
+            hidden lg:block
           `}
         >
           <PlanCarousel units={data.units} />
@@ -150,7 +150,7 @@ export default () => {
 
         <ul
           className={`
-            flex md:hidden
+            flex lg:hidden
             flex-wrap
             flex-row
             gap-4
