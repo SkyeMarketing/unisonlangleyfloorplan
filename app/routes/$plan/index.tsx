@@ -146,7 +146,8 @@ export default () => {
         <ul
           className={`
             flex md:hidden
-            flex-col
+            flex-wrap
+            flex-row
             gap-4
             overflow-x-auto
             py-2
