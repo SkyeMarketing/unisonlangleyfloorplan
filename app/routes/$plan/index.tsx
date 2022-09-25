@@ -157,6 +157,7 @@ export default () => {
             py-2
             justify-center
             items-center
+            mx-auto
           `}
         >
           {data.units.map((unit) => (
