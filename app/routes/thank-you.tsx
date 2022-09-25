@@ -12,7 +12,7 @@ export const links: LinksFunction = () => [
 
 const  ThankYou: React.FC = (): JSX.Element => {
   return (
-      <main className={`flex flex-col items-center py-8 bg-center w-full mx-auto h-full bg-img bg-cover bg-no-repeat bg-blend-darken bg-blend-darken relative`}>
+      <main className={`flex flex-col items-center py-8 bg-center w-full mx-auto h-screen bg-img bg-cover bg-fixed bg-no-repeat bg-blend-darken bg-blend-darken relative`}>
         <p className={`text-xl font-serif uppercase font-bold py-4 px-8 bg-white border-2 border-aqua rounded-md fixed`}>Thank you for registering!</p>
       </main>
   )
