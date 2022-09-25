@@ -23,6 +23,8 @@ type LoaderData = z.infer<typeof LoaderDataSchema>;
 export const loader: LoaderFunction = ({params}) => {
   const {plan} = params;
 
+  console.log(params)
+
   if (!plan) {
     redirect(`/`)
   }
@@ -163,7 +165,7 @@ export default () => {
         >
           {data.units.map((unit) => (
             <li key={unit}>
-              <Link to={`/m/${data.name}/${unit}`}><PlanUnit unit={unit}/> </Link>
+              <Link to={`/${data.name}/${unit}`}><PlanUnit unit={unit}/> </Link>
             </li>
           ))}
         </ul>

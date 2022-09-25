@@ -1,10 +1,13 @@
 import React from "react";
 import {Link} from "@remix-run/react";
+import NameSchema from "~/schemas/Name.schema";
+import {z} from "zod";
 
-export type PlanDisplayProps = {
-  plan: string,
-}
-const PlanDisplay: React.FC<PlanDisplayProps> = ({plan}) => {
+const PlanDisplaySchema = z.object({
+  plan: NameSchema,
+})
+
+const PlanDisplay = ({plan}: z.infer<typeof PlanDisplaySchema>) => {
   return (
     <Link
       className={`
