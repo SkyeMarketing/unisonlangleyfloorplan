@@ -49,16 +49,18 @@ export default () => {
       className={`
         container
         flex
-        flex-col
+        flex-col lg:flex-row
         mx-auto
         lg:space-y-8
-        fixed
+        /*fixed*/
+        items-center
       `}
     >
       <img
         className={`
           lg:w-3/4
           mx-auto
+          justify-self-center
         `}
         alt={`${data.name} floorplan`}
         src={`/imgs/plans/${data.name}.webp`}
