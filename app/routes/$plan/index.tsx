@@ -49,11 +49,9 @@ export default () => {
       className={`
         container
         flex
-        flex-col lg:flex-row
+        flex-col
         mx-auto
         lg:space-y-8
-        /*fixed*/
-        items-center
       `}
     >
       <img
