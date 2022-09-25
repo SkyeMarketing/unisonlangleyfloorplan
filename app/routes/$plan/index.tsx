@@ -57,7 +57,7 @@ export default () => {
     >
       <img
         className={`
-          md:w-3/4
+          lg:w-3/4
           mx-auto
         `}
         alt={`${data.name} floorplan`}
