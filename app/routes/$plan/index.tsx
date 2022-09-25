@@ -31,7 +31,7 @@ export const loader: LoaderFunction = ({params}) => {
     .find(p => p.name === plan)
 
   if (!findPlan) {
-    return redirect("/m")
+    return redirect("/")
   }
 
   return LoaderDataSchema.parse(findPlan);
@@ -151,6 +151,8 @@ export default () => {
             gap-4
             overflow-x-auto
             py-2
+            justify-center
+            items-center
           `}
         >
           {data.units.map((unit) => (
