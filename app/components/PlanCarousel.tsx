@@ -2,12 +2,15 @@ import UnitsSchema from "~/schemas/Units.schema";
 import {z} from "zod";
 import {useEffect, useRef, useState} from "react";
 import PlanUnit from "~/components/PlanUnit";
+import {Link} from "@remix-run/react";
+import NameSchema from "~/schemas/Name.schema";
 
 const CategoryCarouselPropsSchema = z.object({
-  units: UnitsSchema
+  plan: NameSchema,
+  units: UnitsSchema,
 })
 
-export default ({units}: z.infer<typeof CategoryCarouselPropsSchema>) => {
+export default ({plan, units}: z.infer<typeof CategoryCarouselPropsSchema>) => {
   const [current, setCurrent] = useState(0);
 
   const leftRef = useRef<HTMLButtonElement>(null);
@@ -86,7 +89,7 @@ export default ({units}: z.infer<typeof CategoryCarouselPropsSchema>) => {
           />
         </svg>
       </button>
-      <PlanUnit unit={units[current]} />
+      <Link to={`/${plan}/${units[current]}`}><PlanUnit unit={units[current]} /></Link>
       <button
         className={`
           rounded-full 

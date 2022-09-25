@@ -147,7 +147,7 @@ export default () => {
             hidden lg:block
           `}
         >
-          <PlanCarousel units={data.units} />
+          <PlanCarousel plan={data.name} units={data.units} />
         </div>
 
         <ul
