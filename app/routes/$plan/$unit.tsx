@@ -253,7 +253,7 @@ export default () => {
               my-2
               h-px
               mx-auto
-              w-2/3
+              w-full
               border-2
               border-aqua
               rounded-full
