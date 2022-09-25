@@ -99,7 +99,7 @@ const App: React.FC = () => {
       }
     </head>
     <body
-      className={`overflow-hidden relative`}
+      className={`overflow-hidden relative h-screen`}
     >
       <Outlet/>
       <ScrollRestoration/>
