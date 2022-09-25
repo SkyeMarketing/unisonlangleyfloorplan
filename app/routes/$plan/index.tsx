@@ -23,6 +23,10 @@ type LoaderData = z.infer<typeof LoaderDataSchema>;
 export const loader: LoaderFunction = ({params}) => {
   const {plan} = params;
 
+  if (!plan) {
+    redirect(`/`)
+  }
+
   const findPlan = PLANS
     .filter(({enabled}) => enabled)
     .map(({area, baths, layout, name, units}) => {
