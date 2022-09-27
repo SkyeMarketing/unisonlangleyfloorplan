@@ -25,7 +25,7 @@ export default ({area, layout, name}: z.infer<typeof CategoryPlanSchema>) => {
           border-black hover:border-grey
           rounded-lg
           overflow-hidden
-          bg-grey hover:bg-aqua
+          hover:bg-aqua
           group
         `}
       >
