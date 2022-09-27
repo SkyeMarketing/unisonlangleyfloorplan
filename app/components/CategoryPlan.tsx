@@ -17,7 +17,7 @@ export default ({area, layout, name}: z.infer<typeof CategoryPlanSchema>) => {
       <div
         className={`
           flex
-          flex-col sm:flex-row
+          flex-col sm:flex-row lg:flex-col
           justify-center sm:justify-start
           sm:items-center
           w-64 sm:w-auto
@@ -32,7 +32,7 @@ export default ({area, layout, name}: z.infer<typeof CategoryPlanSchema>) => {
         <img
           alt={`${name} Floorplan`}
           className={`
-            border-b-2 sm:border-b-0 sm:border-r-2
+            border-b-2 sm:border-b-0 sm:border-r-2 lg:border-b-2 lg:border-r-0
             border-aqua group-hover:border-grey
           `}
           src={`/imgs/plans/${name}.min.webp`} />
@@ -43,7 +43,7 @@ export default ({area, layout, name}: z.infer<typeof CategoryPlanSchema>) => {
             transition-all
             ease-in-out
             duration-300
-            sm:w-44
+            sm:w-44 lg:w-48
             py-2 sm:py-auto
             sm:px-4
           `}
