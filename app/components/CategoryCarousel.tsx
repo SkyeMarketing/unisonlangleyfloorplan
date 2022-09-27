@@ -2,7 +2,7 @@ import {z} from "zod";
 import NameSchema from "~/schemas/Name.schema";
 import AreaSchema from "~/schemas/Area.schema";
 import LayoutSchema from "~/schemas/Layout.schema";
-import {useCallback, useEffect, useRef, useState} from "react";
+import {Fragment, useCallback, useEffect, useRef, useState} from "react";
 import CategoryPlan from "~/components/CategoryPlan";
 
 const CategoryCarouselSchema = z
@@ -113,9 +113,9 @@ export default ({plans}: z.infer<typeof CategoryCarouselSchema>) => {
     >
       {plans.map((plan, index) => {
         if (index >= current && index <= current + 2) {
-          return <CategoryPlan {...plan} />
+          return <CategoryPlan key={index} {...plan} />
         } else {
-          return <></>;
+          return <Fragment key={index} />
         }
       })}
     </div>
