@@ -143,14 +143,6 @@ export default () => {
           </ul>
         </div>
 
-        {/*<div
-          className={`
-            hidden lg:block
-          `}
-        >
-          <PlanCarousel plan={data.name} units={data.units} />
-        </div>*/}
-
         <ul
           className={`
             flex
