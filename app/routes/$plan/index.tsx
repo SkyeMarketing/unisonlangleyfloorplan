@@ -154,7 +154,7 @@ export default () => {
         <ul
           className={`
             flex
-            lg:w-2/3
+            lg:w-1/2
             flex-wrap
             flex-row
             gap-4
