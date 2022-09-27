@@ -13,7 +13,7 @@ export default ({unit}: z.infer<typeof PlanUnitSchema>) => {
         border-2
         border-aqua hover:border-grey
         rounded-lg
-        w-32 md:w-56 lg:w-32
+        w-32 md:w-56
         font-serif
         text-2xl
         text-center
