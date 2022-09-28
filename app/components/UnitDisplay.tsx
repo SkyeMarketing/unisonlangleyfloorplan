@@ -22,7 +22,7 @@ const UnitDisplay: React.FC<UnitDisplayProps> = ({number, plan}) => {
         rounded-lg
         text-center
       `}
-      to={`/new/${plan}`}
+      to={`/${plan}`}
     >
       <span className={`uppercase`}>Unit</span> {number}
     </Link>

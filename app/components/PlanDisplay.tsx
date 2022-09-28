@@ -24,7 +24,7 @@ const PlanDisplay = ({plan}: z.infer<typeof PlanDisplaySchema>) => {
         text-center
         uppercase
       `}
-      to={`/new`}
+      to={`/`}
     >
       <span className={`uppercase`}>Plan</span> {plan}
     </Link>
