@@ -17,6 +17,7 @@ const  ThankYou: React.FC = (): JSX.Element => {
           flex 
           flex-col 
           items-center 
+          justify-center
           py-8 
           bg-center 
           w-full 
@@ -28,7 +29,6 @@ const  ThankYou: React.FC = (): JSX.Element => {
           bg-no-repeat 
           bg-blend-darken 
           bg-blend-darken 
-          relative
         `}
       >
         <p
@@ -43,7 +43,6 @@ const  ThankYou: React.FC = (): JSX.Element => {
             border-2 
             border-aqua 
             rounded-md 
-            fixed
           `}>
           Thank you for registering!
         </p>
