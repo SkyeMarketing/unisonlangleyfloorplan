@@ -15,8 +15,8 @@ const  ThankYou: React.FC = (): JSX.Element => {
       <main
         className={`
           flex 
-          flex-col 
-          items-center 
+          flex 
+          items-center sm:items-end md:items-center lg:items-end
           justify-center
           py-8 
           bg-center 
@@ -43,6 +43,7 @@ const  ThankYou: React.FC = (): JSX.Element => {
             border-2 
             border-aqua 
             rounded-md 
+            text-center
           `}>
           Thank you for registering!
         </p>
