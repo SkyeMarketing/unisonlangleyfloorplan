@@ -18,7 +18,7 @@ const  ThankYou: React.FC = (): JSX.Element => {
           flex 
           items-center sm:items-end md:items-center lg:items-end
           justify-center
-          py-8 
+          py-16 
           bg-center 
           w-full 
           mx-auto 
