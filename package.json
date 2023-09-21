@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "@netlify/functions": "^1.0.0",
-    "@remix-run/netlify": "^1.5.1",
-    "@remix-run/node": "^1.5.1",
-    "@remix-run/react": "^1.5.1",
+    "@remix-run/netlify": "^1.6.4",
+    "@remix-run/node": "^2.0.0",
+    "@remix-run/react": "^2.0.0",
     "@sendgrid/mail": "^7.7.0",
     "cross-env": "^7.0.3",
     "react": "^18.2.0",
@@ -11,8 +11,8 @@
     "zod": "^3.19.1"
   },
   "devDependencies": {
-    "@remix-run/dev": "^1.5.1",
-    "@remix-run/eslint-config": "^1.5.1",
+    "@remix-run/dev": "^2.0.0",
+    "@remix-run/eslint-config": "^2.0.0",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
@@ -21,7 +21,7 @@
     "eslint": "^8.15.0",
     "postcss": "^8.4.14",
     "tailwindcss": "^3.1.4",
-    "typescript": "^4"
+    "typescript": "^5"
   },
   "engines": {
     "node": ">=14"
