@@ -1,16 +1,20 @@
-import type { LinksFunction } from "@remix-run/node";
+import type { 
+  LinksFunction,
+  RouteComponent,
+} from "@remix-run/server-runtime"
+
 import React from "react";
 
 import styles from '~/styles/thank-you.css'
 
-export const links: LinksFunction = () => [
+export const links = (() => [
   {
     rel: 'stylesheet',
     href: styles
   }
-]
+]) satisfies LinksFunction
 
-const  ThankYou: React.FC = (): JSX.Element => {
+export default (function ThankYou() {
   return (
       <main
         className={`
@@ -49,5 +53,4 @@ const  ThankYou: React.FC = (): JSX.Element => {
         </p>
       </main>
   )
-}
-export default ThankYou;
+}) satisfies RouteComponent

@@ -1,4 +1,8 @@
-import type {LoaderFunction} from "@remix-run/node";
+import type {
+  LoaderFunction,
+  RouteComponent,
+} from "@remix-run/server-runtime"
+
 import PLANS from "~/data/Plans.server";
 import {redirect} from "@remix-run/node";
 import {z} from "zod";
@@ -20,7 +24,7 @@ const LoaderDataSchema = z.object({
 })
 type LoaderData = z.infer<typeof LoaderDataSchema>;
 
-export const loader: LoaderFunction = ({params}) => {
+export const loader = (({params}) => {
   const {plan} = params;
 
   console.log(params)
@@ -42,8 +46,9 @@ export const loader: LoaderFunction = ({params}) => {
 
   return LoaderDataSchema.parse(findPlan);
 
-}
-export default () => {
+}) satisfies LoaderFunction
+
+export default (function Index() {
   const data: LoaderData = useLoaderData();
 
   return (
@@ -166,4 +171,4 @@ export default () => {
       </div>
     </main>
   )
-}
+}) satisfies RouteComponent

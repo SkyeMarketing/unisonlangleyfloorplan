@@ -1,4 +1,10 @@
-import type {ErrorBoundaryComponent, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {
+  LinksFunction, 
+  LoaderFunction, 
+  MetaFunction,
+  RouteComponent
+} from "@remix-run/server-runtime"
+
 import {json} from "@remix-run/node";
 import {Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData, useLocation,} from "@remix-run/react";
 
@@ -6,7 +12,7 @@ import React, {useEffect} from "react";
 
 import styles from "~/styles/app.css"
 
-export const links: LinksFunction = () => ([
+export const links = (() => ([
   {rel: "stylesheet", href: styles},
   {
     rel: "preconnect",
@@ -21,13 +27,13 @@ export const links: LinksFunction = () => ([
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Frank+Ruhl+Libre:wght@300;400;500;700;900&display=swap"
   }
-])
+])) satisfies LinksFunction
 
-export const meta: MetaFunction = () => ({
+export const meta = (() => ({
   charset: "utf-8",
   title: "Unison Floorplans",
   viewport: "width=device-width,initial-scale=1",
-});
+})) satisfies MetaFunction
 
 type LoaderData = {
   gaTrackingId?: string,
@@ -37,11 +43,11 @@ type ENV = NodeJS.ProcessEnv & {
   GA_TRACKING_ID: string,
 }
 
-export const loader: LoaderFunction = async () => {
+export const loader = (async () => {
   return json<LoaderData>({gaTrackingId: 'AW-323317353'});
-};
+}) satisfies LoaderFunction
 
-const App: React.FC = () => {
+export default (function App() {
   const location = useLocation()
   const {gaTrackingId} = useLoaderData<LoaderData>()
 
@@ -107,8 +113,7 @@ const App: React.FC = () => {
     </body>
     </html>
   )
-}
-export default App;
+}) satisfies RouteComponent
 
 /*
 export const CatchBoundary: React.FC = () => {

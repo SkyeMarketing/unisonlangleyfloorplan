@@ -170,6 +170,12 @@ const $Unit: React.FC = () => {
   )
 }
 export default $Unit;*/
+import type {
+  ActionFunction, 
+  LoaderFunction,
+  RouteComponent,
+} from "@remix-run/server-runtime"
+
 import NameSchema from "~/schemas/Name.schema";
 import UnitSchema from "~/schemas/Unit.schema";
 import {z} from "zod";
@@ -179,7 +185,6 @@ import UnitDisplay from "~/components/UnitDisplay";
 import InputField from "~/components/InputField";
 import CheckboxField from "~/components/CheckboxField";
 import SubmitButton from "~/components/SubmitButton";
-import type {ActionFunction, LoaderFunction} from "@remix-run/node";
 import {redirect} from "@remix-run/node";
 import PLANS from "~/data/Plans.server";
 
@@ -201,7 +206,7 @@ const LoaderDataSchema = z
   })
 
 
-export default () => {
+export default (function $Unit() {
   let {plan, unit}: z.infer<typeof LoaderDataSchema> = useLoaderData()
 
   return (
@@ -310,9 +315,9 @@ export default () => {
 
     </div>
   )
-}
+}) satisfies RouteComponent
 
-export const action: ActionFunction = async ({request}) => {
+export const action = (async ({request}) => {
   const formData = await request.formData()
   const data: Record<string, string> = {}
   formData.forEach((value, key) => {
@@ -355,9 +360,9 @@ export const action: ActionFunction = async ({request}) => {
   })
 
   return redirect(`/thank-you`);
-}
+}) satisfies ActionFunction
 
-export const loader: LoaderFunction = async ({params}) => {
+export const loader = (async ({params}) => {
   const {plan, unit} = params
 
   if (!plan) {
@@ -393,4 +398,4 @@ export const loader: LoaderFunction = async ({params}) => {
 
   return loaderData
 
-}
+}) satisfies LoaderFunction 
