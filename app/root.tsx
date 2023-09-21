@@ -14,7 +14,7 @@ import {Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData, useLocat
 
 import React, {useEffect} from "react";
 
-import styles from "~/styles/app.css"
+import styles from "~/tailwind.css"
 
 export const links = (() => ([
   {rel: "stylesheet", href: styles},
