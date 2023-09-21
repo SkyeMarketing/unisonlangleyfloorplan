@@ -198,7 +198,7 @@ const PLANS: Plans = PlansSchema
       baths: 2,
       category: "C",
       enabled: true,
-      layout: "two-bedroom",
+      layout: "three-bedroom",
       name: "C",
       units: [
         109,
