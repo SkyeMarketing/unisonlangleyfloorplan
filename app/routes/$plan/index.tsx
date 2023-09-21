@@ -1,4 +1,10 @@
-import type {LoaderFunction} from "@remix-run/node";
+import type { 
+  RouteComponent,
+} from "@remix-run/react/dist/routeModules"
+import type {
+  LoaderFunction,
+} from "@remix-run/server-runtime"
+
 import PLANS from "~/data/Plans.server";
 import {redirect} from "@remix-run/node";
 import {z} from "zod";
@@ -9,7 +15,6 @@ import UnitsSchema from "~/schemas/Units.schema";
 import LayoutSchema, {layoutTransformer} from "~/schemas/Layout.schema";
 import {Link, useLoaderData} from "@remix-run/react";
 import PlanUnit from "~/components/PlanUnit";
-import PlanCarousel from "~/components/PlanCarousel";
 
 const LoaderDataSchema = z.object({
   area: AreaSchema,
@@ -20,7 +25,7 @@ const LoaderDataSchema = z.object({
 })
 type LoaderData = z.infer<typeof LoaderDataSchema>;
 
-export const loader: LoaderFunction = ({params}) => {
+export const loader = (({params}) => {
   const {plan} = params;
 
   console.log(params)
@@ -42,8 +47,9 @@ export const loader: LoaderFunction = ({params}) => {
 
   return LoaderDataSchema.parse(findPlan);
 
-}
-export default () => {
+}) satisfies LoaderFunction
+
+export default (function Index() {
   const data: LoaderData = useLoaderData();
 
   return (
@@ -166,4 +172,4 @@ export default () => {
       </div>
     </main>
   )
-}
+}) satisfies RouteComponent
