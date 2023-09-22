@@ -202,7 +202,7 @@ const LoaderDataSchema = z
 
 
 export default () => {
-  let {plan, unit}: z.infer<typeof LoaderDataSchema> = useLoaderData()
+  let {plan, unit} = useLoaderData<typeof loader>()
 
   return (
 

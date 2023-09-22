@@ -34,7 +34,7 @@ export const loader: LoaderFunction = () => {
   return data;
 }
 export default () => {
-  const data: LoaderData = useLoaderData();
+  const data: LoaderData = useLoaderData<typeof loader>();
   return (
     <main
       className={`

@@ -1,13 +1,13 @@
-import type {LoaderFunction} from "@remix-run/node";
+import type { LoaderFunction } from "@remix-run/node";
 import PLANS from "~/data/Plans.server";
-import {redirect} from "@remix-run/node";
-import {z} from "zod";
-import AreaSchema, {areaTransformer} from "~/schemas/Area.schema";
-import BathsSchema, {bathsTransformer} from "~/schemas/Baths.schema";
-import NameSchema, {nameTransformer} from "~/schemas/Name.schema";
+import { redirect } from "@remix-run/node";
+import { z } from "zod";
+import AreaSchema, { areaTransformer } from "~/schemas/Area.schema";
+import BathsSchema, { bathsTransformer } from "~/schemas/Baths.schema";
+import NameSchema, { nameTransformer } from "~/schemas/Name.schema";
 import UnitsSchema from "~/schemas/Units.schema";
-import LayoutSchema, {layoutTransformer} from "~/schemas/Layout.schema";
-import {Link, useLoaderData} from "@remix-run/react";
+import LayoutSchema, { layoutTransformer } from "~/schemas/Layout.schema";
+import { Link, useLoaderData } from "@remix-run/react";
 import PlanUnit from "~/components/PlanUnit";
 import PlanCarousel from "~/components/PlanCarousel";
 
@@ -18,10 +18,9 @@ const LoaderDataSchema = z.object({
   name: NameSchema,
   units: UnitsSchema,
 })
-type LoaderData = z.infer<typeof LoaderDataSchema>;
 
-export const loader: LoaderFunction = ({params}) => {
-  const {plan} = params;
+export const loader: LoaderFunction = ({ params }) => {
+  const { plan } = params;
 
   console.log(params)
 
@@ -30,9 +29,9 @@ export const loader: LoaderFunction = ({params}) => {
   }
 
   const findPlan = PLANS
-    .filter(({enabled}) => enabled)
-    .map(({area, baths, layout, name, units}) => {
-      return {area, baths, layout, name, units};
+    .filter(({ enabled }) => enabled)
+    .map(({ area, baths, layout, name, units }) => {
+      return { area, baths, layout, name, units };
     })
     .find(p => p.name === plan)
 
@@ -44,7 +43,7 @@ export const loader: LoaderFunction = ({params}) => {
 
 }
 export default () => {
-  const data: LoaderData = useLoaderData();
+  const data = useLoaderData<typeof loader>();
 
   return (
     <main
@@ -159,7 +158,7 @@ export default () => {
         >
           {data.units.map((unit) => (
             <li key={unit}>
-              <Link to={`/${data.name}/${unit}`}><PlanUnit unit={unit}/> </Link>
+              <Link to={`/${data.name}/${unit}`}><PlanUnit unit={unit} /> </Link>
             </li>
           ))}
         </ul>
