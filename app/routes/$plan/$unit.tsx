@@ -337,11 +337,7 @@ export const action: ActionFunction = async ({request}) => {
 
   const {plan, unit, firstName, lastName, email, phoneNumber : phone, realtor} = dat
 
-  type ENV = NodeJS.ProcessEnv & { ZAPIER_WEBHOOK: string }
-
-  const env = process.env as ENV
-
-  const zapier = await fetch(new URL(env.ZAPIER_WEBHOOK), {
+  const zapier = await fetch(new URL(process.env.ZAPIER_WEBHOOK), {
     method: "POST",
     body: JSON.stringify({
       plan,
